@@ -1,0 +1,92 @@
+.case{
+  cursor: pointer;
+  padding: 0 15px;
+  height: 72px;
+  display: flex;
+  padding: 10px;
+  background: var(--color-white);
+  position:  relative;
+
+  &.active{
+    box-shadow: 0px 2px 4px 4px rgba(145, 207, 255, 0.3) inset;
+  }
+
+  &.from{
+      
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+  }
+
+  &.return{
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+  }
+
+
+  &__body{
+     display: flex;
+     width: 100%;
+     flex-direction: column;
+  }
+
+  &__upText{
+      width: 100%;
+      color: #626971;
+      font-size: .875rem;
+      font-weight: 700;
+      line-height: 1.25rem;
+  }
+
+  &__downText{
+      width: 100%;
+  }
+
+  &__inputDate{
+      width: 100%;
+  }
+  
+}
+.popper{
+  &.visible{
+opacity: 1;
+pointer-events: visible;
+  }
+  pointer-events: none;
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  max-height: 300px;
+  overflow: auto;
+  z-index: 100;
+  border-radius: 10px;
+  background: #fff;
+  position: absolute;
+  width: 100%;
+  top: calc(100% + 2px);
+  left: 0;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+  &__item{
+      display: flex;
+      gap: 10px;
+      padding: 5px;
+      &:hover{
+        background: rgba(22, 22, 22,0.1);
+      }
+      align-items: center;
+      color: #161616;
+      font-family: Skyscanner Relative,-apple-system,BlinkMacSystemFont,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+      font-size: 1rem;
+      line-height: 1.3rem;
+    
+  }
+}
+
+.activeItem{
+  background: rgba(22, 22, 22,0.1);
+}
+
+.inValid{
+  border: 1px solid #d80000;
+}

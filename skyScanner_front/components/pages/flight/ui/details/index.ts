@@ -1,0 +1,2 @@
+export {Details} from './ui';
+

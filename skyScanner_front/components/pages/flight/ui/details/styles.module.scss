@@ -1,0 +1,40 @@
+.main{
+  margin-top: 1rem;
+  color: var(--color-white);
+}
+
+.titleColor{
+  color: var(--color-black);
+  margin-bottom: 1rem !important;
+}
+
+.body{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.flightInfos{
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+
+}
+
+.data{
+  display: flex;
+  gap: 2rem;
+  flex: 1 1 auto;
+}
+.infos{
+  display: flex;
+  gap: 2rem;
+}
+
+.info{
+  flex: 0 1 400px;
+ &__title{
+  color: #000;
+  margin-bottom: 1rem;
+ }
+}

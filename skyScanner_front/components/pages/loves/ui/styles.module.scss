@@ -1,0 +1,48 @@
+
+
+.body{
+margin-top: 1rem;
+}
+
+
+.items{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px,330px));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.item{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px 0 rgba(37, 32, 31, 0.3019607843);
+    position: relative;
+
+    &__left{
+        display: flex;
+
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    &__right{
+         flex: 0 0 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__component{
+        display: flex;
+       
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__company{
+      flex: 0 1 200px;
+    }
+}

@@ -1,0 +1,52 @@
+.body{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hours{
+    font-size: .75rem;
+    font-weight: 400;
+    line-height: 1rem;
+    color: #626971;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.data{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+}
+
+.span{
+    position: absolute;
+    width: 2px;
+    height: calc(100% - 12px);
+    left: 0;
+    bottom: 6px;
+    background: #c1c7cf;
+    &::before,&::after{
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        left: -2.5px;
+        border-radius: 50%;
+        border: 1px solid  #c1c7cf;
+    }
+
+    &::before{
+        top: -5px;
+    }
+
+    &::after{
+        bottom: -5px;
+    }
+}

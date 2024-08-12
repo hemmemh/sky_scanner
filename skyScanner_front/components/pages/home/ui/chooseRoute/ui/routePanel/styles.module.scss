@@ -1,0 +1,105 @@
+
+
+
+
+.main{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+   
+}
+.body{
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 5px;
+
+
+  
+}
+
+.case{
+
+    padding: 0 15px;
+    height: 72px;
+    display: flex;
+    padding: 10px;
+    background: var(--color-white);
+    position:  relative;
+
+
+
+    &.from{
+        
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    &.return{
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+
+    &__body{
+       display: flex;
+       width: 100%;
+       flex-direction: column;
+    }
+
+    &__upText{
+        width: 100%;
+        color: #626971;
+        font-size: .875rem;
+        font-weight: 700;
+        line-height: 1.25rem;
+    }
+
+    &__downText{
+        width: 100%;
+    }
+
+    &__inputDate{
+        width: 100%;
+    }
+    
+}
+
+.first{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.last{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.dateBody{
+    position: relative;
+    display: inline-flex;
+}
+
+.inputBase{
+    width: 100%;
+}
+.popper{
+    &.visible{
+opacity: 1;
+    }
+    background: #fff;
+    position: absolute;
+    width: 100%;
+    top: calc(100% + 2px);
+    left: 0;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+    &__item{
+        display: flex;
+        gap: 10px;
+    }
+}

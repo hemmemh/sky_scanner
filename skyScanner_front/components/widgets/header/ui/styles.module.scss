@@ -1,0 +1,29 @@
+.header{
+  height: 62px;
+  background: var(--color-primary);
+
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+ 
+}
+
+.logoIcon{
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.body{
+  display: flex;
+  height: 62px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

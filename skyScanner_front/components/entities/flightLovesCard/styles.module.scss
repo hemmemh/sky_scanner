@@ -1,0 +1,52 @@
+.item{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d6d5d5;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 13px;
+
+    &__top{
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #d6d5d5;
+        padding: 0 0.5rem;
+    }
+
+    &__flights{
+    padding: 1rem 0;
+     display: flex;
+     gap: 1rem;
+     flex-direction: column;
+     align-items: center;
+     border-bottom: 1px solid #d6d5d5;
+    }
+
+    &__bottom{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin: 1rem 0;
+        padding-left: 2.2rem;
+    }
+
+    &__date{
+   
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
+.cities{
+    margin-left: 1.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.divide{
+    margin: 0 0.5rem;
+    width: 8px;
+    height: 1px;
+    background: #000;
+}
