@@ -23,26 +23,26 @@ export const airBusesArray = [
 
 
 export const citiesArray = [
-    {"name": "Москва"},
-    {"name": "Санкт-Петербург"},
-    {"name": "Новосибирск"},
-    {"name": "Екатеринбург"},
-    {"name": "Казань"},
-    {"name": "Нижний Новгород"},
-    {"name": "Челябинск"},
-    {"name": "Самара"},
-    {"name": "Ростов-на-Дону"},
-    {"name": "Уфа"},
-    {"name": "Красноярск"},
-    {"name": "Пермь"},
-    {"name": "Воронеж"},
-    {"name": "Волгоград"},
-    {"name": "Краснодар"},
-    {"name": "Саратов"},
-    {"name": "Тюмень"},
-    {"name": "Ижевск"},
-    {"name": "Барнаул"},
-    {"name": "Ульяновск"}
+    { "ru": "Москва", "en": "Moscow", "de": "Moskau" },
+    { "ru": "Санкт-Петербург", "en": "Saint Petersburg", "de": "Sankt Petersburg" },
+    { "ru": "Новосибирск", "en": "Novosibirsk", "de": "Nowosibirsk" },
+    { "ru": "Екатеринбург", "en": "Yekaterinburg", "de": "Jekaterinburg" },
+    { "ru": "Казань", "en": "Kazan", "de": "Kasan" },
+    { "ru": "Нижний Новгород", "en": "Nizhny Novgorod", "de": "Nischni Nowgorod" },
+    { "ru": "Челябинск", "en": "Chelyabinsk", "de": "Tscheljabinsk" },
+    { "ru": "Самара", "en": "Samara", "de": "Samara" },
+    { "ru": "Ростов-на-Дону", "en": "Rostov-on-Don", "de": "Rostow am Don" },
+    { "ru": "Уфа", "en": "Ufa", "de": "Ufa" },
+    { "ru": "Красноярск", "en": "Krasnoyarsk", "de": "Krasnojarsk" },
+    { "ru": "Пермь", "en": "Perm", "de": "Perm" },
+    { "ru": "Воронеж", "en": "Voronezh", "de": "Woronesch" },
+    { "ru": "Волгоград", "en": "Volgograd", "de": "Wolgograd" },
+    { "ru": "Краснодар", "en": "Krasnodar", "de": "Krasnodar" },
+    { "ru": "Саратов", "en": "Saratov", "de": "Saratow" },
+    { "ru": "Тюмень", "en": "Tyumen", "de": "Tjumen" },
+    { "ru": "Ижевск", "en": "Izhevsk", "de": "Ischewsk" },
+    { "ru": "Барнаул", "en": "Barnaul", "de": "Barnaul" },
+    { "ru": "Ульяновск", "en": "Ulyanovsk", "de": "Uljanowsk" }
 ]
 
 export const companyArray = [
@@ -56,16 +56,7 @@ export const companyArray = [
     {"name": "JetStream Aviation"},
     {"name": "Pioneer Air Services"},
     {"name": "Falcon Aero"},
-    {"name": "Infinity Air"},
-    {"name": "StarFlight Charter"},
-    {"name": "Elite Skyways"},
-    {"name": "Vanguard Airlines"},
-    {"name": "Nimbus Aviation"},
-    {"name": "AeroDream Travels"},
-    {"name": "Velocity Air"},
-    {"name": "Zenith Flyers"},
-    {"name": "Skybound Charter"},
-    {"name": "NovaJet Airlines"}
+
 ]
 
 export const seatClassArray = [

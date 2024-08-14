@@ -19,15 +19,20 @@ import { JwtGuard } from './auth/guards/JwtGuard';
 import { OrderModule } from './order/order.module';
 import { LovesModule } from './loves/loves.module';
 import { Loves } from './schemas/Loves.schema';
-
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: process.env.ENV === 'production' ? '.prod.env' : '.env',
     }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'src', 'static'),
+      serveRoot: '/static', 
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.POSTGRESQL_HOST,
+      host: '10.11.2.210',
       port: +process.env.POSTGRESQL_PORT,
       username: process.env.POSTGRESQL_USER,
       password: process.env.POSTGRESQL_PASS,

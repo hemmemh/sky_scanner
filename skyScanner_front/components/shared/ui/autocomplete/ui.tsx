@@ -26,10 +26,12 @@ export const Autocomplete:FC<Autocomplete> = memo(({className = 'default', label
   const autocompleteRef = useRef(null)
   const popperRef = useRef(null)
 
+
   const valueClick = (event:string)=>{
 
     setInput(event)
     onChange(event)
+    setPopperOpen(false)
   }
 
 
@@ -79,7 +81,8 @@ export const Autocomplete:FC<Autocomplete> = memo(({className = 'default', label
     
     const popper = popperRef.current as HTMLElement
     const autocomplete = autocompleteRef.current as HTMLElement
-    if (popper.contains(target) ) {
+
+    if (popper.contains(target) && target) {
       return
   }
   

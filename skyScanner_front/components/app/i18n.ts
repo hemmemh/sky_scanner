@@ -11,6 +11,7 @@ import { flightLng } from '../shared/i18n/flight';
 import { loginLng } from '../shared/i18n/logIn';
 import { languageChangeLng } from '../shared/i18n/languageChange';
 import { profileLng } from '../shared/i18n/profile';
+import { cityLng } from '../shared/i18n/city';
 
 i18n
   // detect user language
@@ -41,6 +42,7 @@ i18n
               login:loginLng.ru,
               languageChange:languageChangeLng.ru,
               profile:profileLng.ru,
+              city:cityLng.ru
             },
           },
           en: {
@@ -57,6 +59,7 @@ i18n
               login:loginLng.en,
               languageChange:languageChangeLng.en,
               profile:profileLng.en,
+              city:cityLng.en
             },
           },
           de: {
@@ -72,6 +75,7 @@ i18n
               login:loginLng.de,
               languageChange:languageChangeLng.de,
               profile:profileLng.de,
+              city:cityLng.de
             },
           },
     }

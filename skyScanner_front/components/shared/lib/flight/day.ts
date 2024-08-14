@@ -46,10 +46,12 @@ export const weekDayAndDatefromMs = (date:number)=>{
       }
 
       export const getHoursAndMinutes = (date:number)=>{
+        console.log(' dayjs().utcOffset()',  dayjs().utcOffset());
+        const offset  =  dayjs().utcOffset() / 60
         const calculatedHour = Math.floor(date  / 60); // Get the integer division result for hours
         const calculatedMinute = date % 60; // Get the remainder for minutes
         
         // Format into HH:mm
-        return dayjs().hour(calculatedHour).minute(calculatedMinute).format('HH:mm');
+        return dayjs().hour(calculatedHour).minute(calculatedMinute).add(offset, 'hour').format('HH:mm');
       }
 

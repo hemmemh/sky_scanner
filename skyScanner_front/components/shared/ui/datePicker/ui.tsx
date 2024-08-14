@@ -43,17 +43,21 @@ export const DatePicker:FC<Autocomplete> = memo(({className = 'default', onChang
   }
 
   const closeCalendar = useCallback ((e:any) =>{
-    console.log('ddd', calendarRef.current, caseRef.current);
+
     if (!calendarRef.current)  return
     if (!caseRef.current)  return
     const target = e.target as HTMLElement
    
-    
+
     const calendar = calendarRef.current as HTMLElement
     const datePicker = caseRef.current as HTMLElement
     const close  = datePicker.querySelector(`.${styles.case__reset}`)
     if (!close)  return
     
+    if (target.classList.contains('MuiPickersDay-root')) {
+      setCalendarOpen(false)
+      return
+    }
     if (datePicker.contains(target) &&  target !== close && !close.contains(target)) {
       setCalendarOpen(true)
       return

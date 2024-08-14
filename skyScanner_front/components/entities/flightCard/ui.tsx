@@ -13,6 +13,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
 import { UseLoves } from '@/components/shared/lib/loves/useLoves';
+import Image from 'next/image';
 
 
 interface FlightCard {
@@ -25,14 +26,32 @@ const Infos:FC<FlightCard> = memo(({data})=>{
       <>
       <div className={styles.info}>
  
- <div className={styles.info__company}>{data[0][0].company.name}</div>
+ <div className={styles.info__company}>
+ <Image 
+    alt='image' 
+    width={100}
+    className={styles.image}
+    height={100}
+    src={`${process.env.NEXT_PUBLIC_API_STATIC_URL}companies/${data[0][0].company.image}`}
+    unoptimized
+    />
+ </div>
  <FlightData data={data[0]}/>
 
 
   </div> 
   <div className={styles.info}>
  
- <div className={styles.info__company}>{data[1][0].company.name}</div>
+ <div className={styles.info__company}>
+  <Image 
+  alt='image' 
+  width={100}
+  className={styles.image}
+  height={100}
+  src={`${process.env.NEXT_PUBLIC_API_STATIC_URL}companies/${data[0][0].company.image}`}
+  unoptimized
+  />
+  </div>
  <FlightData data={data[1]}/>
 
 
@@ -43,7 +62,17 @@ const Infos:FC<FlightCard> = memo(({data})=>{
     return (
       <div className={styles.info}>
          
-      <div className={styles.info__company}>{data[0].company.name}</div>
+      <div className={styles.info__company}>
+      <Image 
+      alt='image' 
+      width={100}
+      className={styles.image}
+      height={100}
+      src={`${process.env.NEXT_PUBLIC_API_STATIC_URL}companies/${data[0].company.image}`}
+      unoptimized
+      />
+
+      </div>
       <FlightData data={data}/>
        </div> 
     )
@@ -80,10 +109,6 @@ export const FlightCard:FC<FlightCard> = memo(({data}) => {
     }
  
   }
-
-
-
-
 
   return (
      <div className={styles.main}>

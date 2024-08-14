@@ -14,4 +14,7 @@ export class Company {
 
     @OneToMany(() => Trip, (trip) => trip.company, {cascade:true})
     trips: Trip[]
+
+    @Column({default:''})
+    image:string
 }

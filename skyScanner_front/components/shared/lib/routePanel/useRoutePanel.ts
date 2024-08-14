@@ -13,6 +13,8 @@ import dayjs, { Dayjs } from 'dayjs'
 import { ICity } from '../../api/city'
 import { fetchCityList, selectCityList } from '@/components/entities/cityList'
 import { fetchSeatClassList } from '@/components/entities/seatClassList'
+import { CityKeys } from '../../api/city/types'
+import { useTranslation } from 'react-i18next'
 
 
 const infoDefault:Info = {
@@ -45,7 +47,7 @@ export const UseRoutePanel = () => {
     const [fromCityList, setFromCityList] = useState<ICity[]>([])
     const [toCityList, setToCityList] = useState<ICity[]>([])
     const cityList = useAppSelector(selectCityList)
-  
+    const { t } = useTranslation();
     useEffect(() => {
         useDispatch(fetchCityList())
         useDispatch(fetchSeatClassList())
@@ -76,7 +78,11 @@ export const UseRoutePanel = () => {
   }
   
   const onCityFromChange = (name:string)=>{
-  const item = cityList.find(el=>el.name === name)
+  const item = cityList.find(el=>{
+    const lang  = t('city.lang') as CityKeys
+    return el.name[lang] === name
+
+  })
   if (!item) return
   setInfo({...info, from:item.uid})
   const newToCityList = cityList.filter(el=>el.uid !== item.uid)
@@ -86,7 +92,10 @@ export const UseRoutePanel = () => {
   }
 
   const onCityToChange = (name:string)=>{
-    const item = cityList.find(el=>el.name === name)
+    const item = cityList.find(el=>{
+      const lang  = t('city.lang') as CityKeys
+      return el.name[lang] === name
+    })
     if (!item) return
     setInfo({...info, to:item.uid})
     const newFromCityList = cityList.filter(el=>el.uid !== item.uid)

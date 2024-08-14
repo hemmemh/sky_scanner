@@ -59,8 +59,8 @@ export const FlightsBody = () => {
     <FlightsSort/>
     <div className={styles.cards}>
       {!tripList && <Title size='medium' color='#000'>Рейсов не найдено</Title>} 
-     {tripListLoading && Array.from(Array(5).keys()).map(()=>
-    <Skeleton variant="rounded"className={styles.tripLoader}/>
+     {tripListLoading && Array.from(Array(5).keys()).map((el, i)=>
+    <Skeleton key={i} variant="rounded"className={styles.tripLoader}/>
     )}
     {!tripListLoading && tripList && tripList.map((el, i)=>
     {if (isTripsPairs(el)) return <FlightCard key={el[0].map(el=>el.uid).join(',') + el[1].map(el=>el.uid).join(',')}  data={el}/>

@@ -128,6 +128,8 @@ export const getMinMaxDepartureTimeWithReturn = (trips:[Trip[], Trip[]][])=>{
 }
 
 const getTimeParts = (ms) => {
+
+    
   const date = dayjs(ms);
   return { hour: date.hour(), minute: date.minute() };
 };

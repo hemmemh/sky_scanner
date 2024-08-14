@@ -31,7 +31,7 @@ export class CityService {
     async createMany(): Promise<City[]> {
         const cities = citiesArray
         for(const city of cities){
-           await this.CityRepo.save(city);
+           await this.CityRepo.save({name:city});
         }
          return this.getAll()
       }

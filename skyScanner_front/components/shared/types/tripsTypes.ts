@@ -9,6 +9,15 @@ export interface Info{
   sort:Sort
 
 }
+export interface InfoValidation{
+  from:boolean,
+  to:boolean,
+  depart:boolean,
+  seatNumber:boolean,
+  seatClass:boolean,
+
+}
+
 
 
 

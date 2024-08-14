@@ -23,6 +23,7 @@ import { ICity } from '@/components/shared/api/city';
 import { useTranslation } from 'react-i18next';
 import { UseRoutePanel } from '@/components/shared/lib/routePanel/useRoutePanel';
 import { MySnackBar } from '@/components/shared/ui/snackBar/ui';
+import { CityKeys } from '@/components/shared/api/city/types';
 dayjs.extend(utc)
 dayjs.extend(timezone)
 
@@ -74,7 +75,10 @@ const findTrips = ()=>{
         <div className={styles.body}>
           <Autocomplete 
            isValid={validationState.from} 
-           items={fromCityList.map(el=>el.name)} 
+           items={fromCityList.map(el=>{
+            const lang  = t('city.lang') as CityKeys
+            return el.name[lang]
+           })} 
            className={styles.first}  
            label={t('chooseRoute.from')} 
            placeholder={t('chooseRoute.city')} 
@@ -82,7 +86,10 @@ const findTrips = ()=>{
 
           <Autocomplete 
            isValid={validationState.to} 
-           items={toCityList.map(el=>el.name)} 
+           items={toCityList.map(el=>{
+            const lang  = t('city.lang') as CityKeys
+            return el.name[lang]
+           })} 
            label={t('chooseRoute.to')} 
            placeholder={t('chooseRoute.city')} 
            onChange={onCityToChange}/>

@@ -517,11 +517,5 @@ export class TripService {
       
         }
 
-    async createMany() {
-        const trips = tripArray
-        for(const trip of trips){
-           await this.TripRepo.save(trip);
-        }
-         //return this.getAll()
-      }
+
 }

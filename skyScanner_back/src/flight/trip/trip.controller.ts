@@ -11,10 +11,6 @@ export class TripController {
 
     constructor(private tripService: TripService) {}
 
-    @Post('createMany')
-    createMany() {
-      return this.tripService.createMany();
-    }
 
     @Post('generate')
     generate() {
