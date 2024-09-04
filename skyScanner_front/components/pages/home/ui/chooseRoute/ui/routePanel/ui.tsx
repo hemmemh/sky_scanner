@@ -20,7 +20,7 @@ import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
 import { Info, panelInputLabel } from '@/components/shared/types/tripsTypes';
 import { ICity } from '@/components/shared/api/city';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { UseRoutePanel } from '@/components/shared/lib/routePanel/useRoutePanel';
 import { MySnackBar } from '@/components/shared/ui/snackBar/ui';
 import { CityKeys } from '@/components/shared/api/city/types';

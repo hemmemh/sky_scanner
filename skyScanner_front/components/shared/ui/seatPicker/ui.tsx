@@ -9,6 +9,8 @@ import { NumberInput } from '../numberInput';
 import { useAppDispatch, useAppSelector } from '../../lib/store';
 import { fetchSeatClassList, selectSeatClassList } from '@/components/entities/seatClassList';
 import { ISeatClass } from '../../api/seatClass';
+import { SeatClassKeys } from '../../api/seatClass/types';
+import { useTranslation } from 'react-i18next';
 
 
 interface SeatPicker {
@@ -20,7 +22,8 @@ interface SeatPicker {
 }
 
 export const SeatPicker:FC<SeatPicker> = ({className, label, placeholder, onChange}) => {
-
+  const { t } = useTranslation();
+  const lang  = t('city.lang') as SeatClassKeys
   const [popperOpen, setPopperOpen] = useState(false)
   const [input, setInput] = useState('')
   const [seatClass, setSeatClass] = useState<ISeatClass | null>(null)
@@ -49,8 +52,10 @@ export const SeatPicker:FC<SeatPicker> = ({className, label, placeholder, onChan
 
  useEffect(() => {
   if (!seatClass)  return
+  console.log('d', seatClass);
+  
   onChange({seatNumber, seatClass:seatClass.uid})
-  setInput(`${seatNumber} место, ${seatClass.name}`)
+  setInput(`${seatNumber} место, ${seatClass.name[lang]}`)
  }, [seatClass, seatNumber])
 
 
@@ -93,7 +98,8 @@ setPopperOpen(false)
 
 
 const changeSeatClass = (event: SelectChangeEvent) => {
-  const item = seatClassList.find(el=>el.name === event.target.value as string)
+ 
+  const item = seatClassList.find(el=>el.name[lang] === event.target.value as string)
   if (item) {
     setSeatClass(item);
   }
@@ -115,19 +121,19 @@ const changeSeatClass = (event: SelectChangeEvent) => {
     <div className={styles.case__body}>
     <div className={styles.case__upText}>{label}</div>
           <div >
-                     <Input placeholder={placeholder}   value={input}/>
+                     <Input readOnly placeholder={placeholder}   value={input}/>
                      <div ref={popperRef}  className={clsx(styles.popper, {[styles.visible]:popperOpen})}>
                       <div className={clsx(styles.popper__body)}>
                       <Title size='small' color='black'>Класс</Title>
                       {seatClass && 
                         <FormControl fullWidth>
                         <Select
-                               value={seatClass.name}
+                               value={seatClass.name[lang]}
                                onClick={(e)=>e.preventDefault}
                                onChange={changeSeatClass}
                                defaultValue='dd'
                              >
-                              {seatClassList.map(el=><MenuItem key={el.uid} value={el.name}>{el.name}</MenuItem>)}
+                              {seatClassList.map(el=><MenuItem key={el.uid} value={el.name[lang]}>{el.name[lang]}</MenuItem>)}
                              </Select>
                         </FormControl>}
 

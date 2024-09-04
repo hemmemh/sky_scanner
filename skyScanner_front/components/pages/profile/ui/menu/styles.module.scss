@@ -35,9 +35,39 @@ flex: 0 1 500px;
 .navItem{
     display: flex;
     align-items: center;
-
+    cursor: pointer;
     padding: 1rem;
     border-bottom: 1px solid #626971;
+    transition:all 1s ease;
+    @media (any-hover: hover) {
+        &:hover {
+            transition:all 0.3s ease;
+            .navItem__icon{
+                transition:all 0.3s ease;
+                color: #1976d2;
+            }
+            .navItem__text{
+                transition:all 0.3s ease;
+                color: #1976d2;
+            }
+            .navItem__arrow{
+                     transition:all 0.3s ease;
+                color: #1976d2;
+            }
+        }
+    }
+
+    &.active{
+        .navItem__icon{
+            color: #1976d2;
+        }
+        .navItem__text{
+            color: #1976d2;
+        }
+        .navItem__arrow{
+            color: #1976d2;
+        }
+    }
 
     &__icon{
         display: flex;

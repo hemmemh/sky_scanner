@@ -214,12 +214,13 @@ export class TripService {
 
 
       if (startTrip.departure_city.uid !== startCity.uid) {
+        console.log('ddd', startCity);
         nextTrips = await this.TripRepo.find({
           where:{
               uid:Not(In(startTrips)),
-              departure_city:startCity,
+              departure_city:{uid:startCity.uid},
               seats:+trip.seats,
-              seatClass:trip.seatClass,
+              seatClass:{uid:trip.seatClass.uid},
               departure_time:Between(trip.arrival_time, endTime),
             
           }
@@ -304,6 +305,7 @@ export class TripService {
 
   
 
+  
     
         
               departureTrips = departureTrips.filter(el=>{
@@ -325,7 +327,7 @@ export class TripService {
   
 
 
-    
+        
 
         switch (query.sort) {
           
@@ -476,7 +478,7 @@ export class TripService {
         const cities = await this.cityService.getAll()
         const companies  = await this.companyService.getAll()
         const airBuses  = await this.airbusService.getAll()
-        const seatClass =  await this.seatClassService.getOneByName('эконом класс')
+        const seatClass =  await this.seatClassService.getOne('00905ea7-fac1-49ce-b52a-7130cc9a8a38')
         while(numbers > 0){
           const departure_time = getRandomInteger(startDate, endDate)
           const arrival_time = getRandomInteger(departure_time,departure_time + 18000000)

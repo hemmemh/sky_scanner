@@ -51,7 +51,22 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    cursor: pointer;
     border-bottom: 1px solid #626971;
+    @media (any-hover: hover) {
+        &:hover {
+            transition:all 0.3s ease;
+            .delete__name{
+                transition:all 0.3s ease;
+                color: #1976d2;
+            }
+ 
+            .delete__arrow{
+                     transition:all 0.3s ease;
+                color: #1976d2;
+            }
+        }
+    }
     &__name{
         font-size: 1.5rem;
         font-weight: 400;

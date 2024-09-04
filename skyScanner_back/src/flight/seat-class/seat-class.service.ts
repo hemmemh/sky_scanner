@@ -33,18 +33,15 @@ export class SeatClassService {
 
     
       
-      async getOneByName(name:string): Promise<SeatClass> {
-        return this.seatClassRepo.findOne({where:{name}})
-      }    
-
+     
 
 
 
 
     async createMany(): Promise<SeatClass[]> {
         const seatClasses = seatClassArray
-        for(const company of seatClasses){
-           await this.seatClassRepo.save(company);
+        for(const seatClass of seatClasses){
+           await this.seatClassRepo.save(seatClass);
         }
          return this.getAll()
       }

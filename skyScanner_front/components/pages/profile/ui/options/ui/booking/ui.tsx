@@ -8,7 +8,8 @@ import { FlightData } from '@/components/shared/ui/flightData';
 import { useAppSelector } from '@/components/shared/lib/store';
 import { selectUser } from '@/components/entities/user';
 import dayjs from 'dayjs';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 export const Booking = () => {
   const user = useAppSelector(selectUser)
   const { t } = useTranslation();
@@ -16,6 +17,8 @@ export const Booking = () => {
  return dayjs(date).format('DD/MM/YYYY')
   }
 
+  console.log('user?.orders', user?.orders);
+  
 
 
   return (
@@ -35,13 +38,28 @@ export const Booking = () => {
                  <AccordionDetails>
              <div className={styles.item}>
                  <div className={styles.item__component}>
-                     <div className={styles.item__company}>имя компании</div>
+                 <Image 
+                    alt='image' 
+                    width={100}
+                    className={styles.image}
+                    height={100}
+                    src={`${process.env.NEXT_PUBLIC_API_STATIC_URL}companies/${order.from[0].company.image}`}
+                    unoptimized
+                 />
                       <FlightData data={order.from}/>
                  </div>
+                {order.to.length !==0 && 
                  <div className={styles.item__component}>
-                     <div className={styles.item__company}>имя компании</div>
+                      <Image 
+                    alt='image' 
+                    width={100}
+                    className={styles.image}
+                    height={100}
+                    src={`${process.env.NEXT_PUBLIC_API_STATIC_URL}companies/${order.to[0].company.image}`}
+                    unoptimized
+                 />
                       <FlightData data={order.to}/>
-                 </div>
+                 </div>}
              </div>
                  </AccordionDetails>
                </Accordion>

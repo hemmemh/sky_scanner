@@ -14,7 +14,9 @@ import { ITrip } from '@/components/shared/api/trip';
 import { isTripsPairs } from '@/components/shared/quards/guards';
 import dayjs from "dayjs"
 import { msToHoursAndMinutes, weekDayAndDatefromMs } from '@/components/shared/lib/flight';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
+import { CityKeys } from '@/components/shared/api/city/types';
+import Image from 'next/image';
 
 
 
@@ -47,7 +49,16 @@ export const FlightBigCard:FC<FlightBigCard> = ({data}) => {
           <div className={styles.head}>
           <div className={styles.info}>
          
-      <div className={styles.info__company}>{data[0].company.name}</div>
+      <div className={styles.info__company}>
+      <Image 
+    alt='image' 
+    width={100}
+    className={styles.image}
+    height={100}
+    src={`${process.env.NEXT_PUBLIC_API_STATIC_URL}companies/${data[0].company.image}`}
+    unoptimized
+    />
+      </div>
       <FlightData data={data}/>
        </div> 
           </div>
@@ -60,7 +71,7 @@ export const FlightBigCard:FC<FlightBigCard> = ({data}) => {
                   <div key={el.uid} className={styles.bort}>{el.airBus.name}</div>
           <FlightVertData trip={el}/>
           <div className={styles.infos}>
-          <div className={styles.info}>{t('tripData.arrives')} {weekDayAndDatefromMs(+el.departure_time)}</div>
+          <div className={styles.info}>{t('tripData.arrives')} {weekDayAndDatefromMs(+el.departure_time, t('city.lang'))}</div>
           <span className={styles.span}></span>
           <div className={styles.info}>{t('tripData.journeyDuration')} {msToHoursAndMinutes(+el.departure_time, +el.arrival_time).hours}{t('tripData.hours')} {msToHoursAndMinutes(+el.departure_time, +el.arrival_time).minutes}</div>
           </div></>

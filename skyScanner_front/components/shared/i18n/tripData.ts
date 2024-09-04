@@ -3,6 +3,7 @@ export const tripDataLng = {
         select: 'ВЫБРАТЬ',
         hours: 'ч',
         direct: 'прямой',
+        transfers: 'пересадок',
         arrives: 'Прибытие:',
         journeyDuration: 'Продолжительность поездки'
     },
@@ -10,6 +11,7 @@ export const tripDataLng = {
         select: 'SELECT',
         hours: 'h',
         direct: 'direct',
+        transfers: 'transfers',
         arrives: 'Arrives:',
         journeyDuration: 'Journey duration'
         
@@ -18,6 +20,7 @@ export const tripDataLng = {
         select: 'AUSWÄHLEN',
         hours: 'h',
         direct: 'direkt',
+        transfers: 'Überweisungen',
         arrives: 'Ankunft:',
         journeyDuration: 'Reisedauer'
     }

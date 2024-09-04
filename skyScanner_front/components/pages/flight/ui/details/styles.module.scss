@@ -16,6 +16,7 @@
 
 .flightInfos{
   display: flex;
+  gap: 1rem;
   flex-direction: column;
   flex: 1 1 auto;
 
@@ -32,7 +33,7 @@
 }
 
 .info{
-  flex: 0 1 400px;
+  flex: 0 1 450px;
  &__title{
   color: #000;
   margin-bottom: 1rem;

@@ -61,20 +61,36 @@ export const companyArray = [
 
 export const seatClassArray = [
     {
-    "name":"эконом класс",
+    "name":{
+        ru:"эконом класс",
+        en:"Economy Class",
+        de:"Economy Klasse"
+    },
     "multiplier":1
     },
     {
-        "name":"премиум класс",
+        "name":{
+            ru:"Премиум класс",
+            en:"Premium Class",
+            de:"Premium Klasse" 
+        },
         "multiplier":2
     },
     {
-        "name":"бизнес класс",
+        "name":{
+            ru:"Бизнес класс",
+            en:"Business Class",
+            de:"Business Klasse" 
+        },
         "multiplier":3
     },
 
     {
-        "name":"первый класс",
+        "name":{
+            ru:"Первый класс",
+            en:"First Class",
+            de:"Erste Klasse"   
+        },
         "multiplier":4
     },
 ]

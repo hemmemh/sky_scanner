@@ -1,5 +1,6 @@
 import dayjs from "dayjs"
-
+import 'dayjs/locale/ru';
+import 'dayjs/locale/de';
 export const msToHoursAndMinutes=(startDate:number, endDate:number)=>{
 
     const start = dayjs(startDate).format('HH:mm')
@@ -12,10 +13,12 @@ export const msToHoursAndMinutes=(startDate:number, endDate:number)=>{
     return {start, end, hours, minutes}
 }
 
-export const weekDayAndDatefromMs = (date:number)=>{
+export const weekDayAndDatefromMs = (date:number, locale:string)=>{
+  console.log('df', locale);
+  
     const weekDay = dayjs(date).day()
     const data = dayjs(date).date()
-    const month = dayjs(date).format('MMM')
+    const month = dayjs(date).locale(locale).format('MMM')
     const year = dayjs(date).year()
     
     return `${weekDay}, ${data} ${month} ${year}`
@@ -23,10 +26,10 @@ export const weekDayAndDatefromMs = (date:number)=>{
     
       }
 
-      export const monthAndDayFromMs = (date:number)=>{
+      export const monthAndDayFromMs = (date:number, locale:string)=>{
    
         const data = dayjs(date).date()
-        const month = dayjs(date).format('MMM')
+        const month = dayjs(date).locale(locale).format('MMM')
   
         
         return `${data} ${month}`

@@ -5,7 +5,7 @@ import { Title } from '@/components/shared/ui/title';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
 import { IoIosArrowDown } from "react-icons/io";
 import { infoLng } from '@/components/shared/i18n/home';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 
 

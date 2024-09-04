@@ -16,8 +16,9 @@ import { weekDayAndDatefromMs } from '@/components/shared/lib/flight';
 import { ISeatClass } from '@/components/shared/api/seatClass';
 import { addOrderAction, selectUser } from '@/components/entities/user';
 import { MySnackBar } from '@/components/shared/ui/snackBar/ui';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { UseOrder } from '@/components/shared/lib/order/useOrder';
+import dayjs from 'dayjs';
 
 export const Details = memo(() => {
 
@@ -28,21 +29,28 @@ export const Details = memo(() => {
   const {addToOrder,  payedOrder, snackBarMessage, snackBarOpen, setSnackBarOpen } = UseOrder(trips)
 
   useEffect(() => {
+  dayjs.locale(t('city.lang'))
    useDispatch(fetchTrips({params}))
   }, [])
 
+  useEffect(() => {
+   console.log('%%%', t('city.lang'));
+   
+   dayjs.locale(t('city.lang'))
+  }, [t('city.lang')])
+  
 
 
   const FlightCards = memo(({trips}:{trips: ITrip[] | [ITrip[], ITrip[]]})=>{
  if(isTripsPairs(trips)){
   return <>
                   <div className={styles.info}>
-                    <div className={styles.info__title}>{t('flight.outBound')} {weekDayAndDatefromMs(+trips[0][0].departure_time)}</div>
+                    <div className={styles.info__title}>{t('flight.outBound')} {weekDayAndDatefromMs(+trips[0][0].departure_time, t('city.lang'))}</div>
                     {trips &&  <FlightBigCard data={trips[0]}/>}
                    
                 </div>
                 <div className={styles.info}>
-                    <div className={styles.info__title}>{t('flight.return')} {weekDayAndDatefromMs(+trips[1][0].departure_time)}</div>
+                    <div className={styles.info__title}>{t('flight.return')} {weekDayAndDatefromMs(+trips[1][0].departure_time, t('city.lang'))}</div>
                     {trips && <FlightBigCard data={trips[1]}/>}
                     
                 </div>
@@ -51,7 +59,7 @@ export const Details = memo(() => {
 
  return <>
              <div className={styles.info}>
-                    <div className={styles.info__title}>{t('flight.return')} {weekDayAndDatefromMs(+trips[0].departure_time)}</div>
+                    <div className={styles.info__title}>{t('flight.return')} {weekDayAndDatefromMs(+trips[0].departure_time,  t('city.lang'))}</div>
                     {trips && <FlightBigCard data={trips}/>}
                     
                 </div>

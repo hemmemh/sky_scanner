@@ -5,7 +5,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Button } from '@mui/mate
 import Link from 'next/link';
 import { IoIosArrowDown } from 'react-icons/io';
 import { Title } from '@/components/shared/ui/title';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { footerLng } from '@/components/shared/i18n/footer';
 import { LanguageChange } from '@/components/features/languageChange';
 

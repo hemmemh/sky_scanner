@@ -10,7 +10,7 @@ import { FlightData } from '@/components/shared/ui/flightData';
 import { ITrip } from '@/components/shared/api/trip';
 import { isTripsPairs } from '@/components/shared/quards/guards';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 import { UseLoves } from '@/components/shared/lib/loves/useLoves';
 import Image from 'next/image';
@@ -100,12 +100,14 @@ export const FlightCard:FC<FlightCard> = memo(({data}) => {
   const {addToLovesButton, deleteLovesButton, loved} = UseLoves(data)
 
   const selectTrip = ()=>{
+          const seatNumber = searchParams.get('seatNumber') ?? '1'
+      const seatClass = searchParams.get('seatClass') ?? ''
     if (isTripsPairs(data)) {
       console.log('data[0].join(',')', data[0].join(','));
-      
-      router.push(`../../flight/${data[0].map(el=>el.uid).join(',')}/${data[1].map(el=>el.uid).join(',')}`)
+
+      router.push(`../../flight/${data[0].map(el=>el.uid).join(',')}/${data[1].map(el=>el.uid).join(',')}?seatNumber=${seatNumber}&seatClass=${seatClass}`)
     }else{
-      router.push(`flight/${data.map(el=>el.uid).join(',')}`)
+      router.push(`/flight/${data.map(el=>el.uid).join(',')}?seatNumber=${seatNumber}&seatClass=${seatClass}`)
     }
  
   }
@@ -116,7 +118,6 @@ export const FlightCard:FC<FlightCard> = memo(({data}) => {
         <div className={styles.infos}>
           <Infos data={data}/>
         </div>
-
         <div className={styles.actions}>
           <div className={styles.actions__body}>
              <Price data={data}/>
@@ -132,8 +133,6 @@ export const FlightCard:FC<FlightCard> = memo(({data}) => {
         <MdFavoriteBorder />
          </IconButton>
           }
-    
-          
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ import { ICity } from '../../api/city'
 import { fetchCityList, selectCityList } from '@/components/entities/cityList'
 import { fetchSeatClassList } from '@/components/entities/seatClassList'
 import { CityKeys } from '../../api/city/types'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 
 const infoDefault:Info = {

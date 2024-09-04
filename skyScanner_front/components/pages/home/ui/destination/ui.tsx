@@ -5,7 +5,7 @@ import Image from 'next/image';
 import mainImage from '@/public/images/shutterstock_1278417400.jpg';
 import { Title } from '@/components/shared/ui/title';
 import { Button } from '@mui/material';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 export const Destination = () => {
 

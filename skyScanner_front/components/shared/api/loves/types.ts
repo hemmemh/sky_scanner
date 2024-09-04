@@ -10,5 +10,6 @@ export interface ILoves{
     user: IUser
     from_positions:string[]
     to_positions:string[]
+    seatNumber:number
 }
 

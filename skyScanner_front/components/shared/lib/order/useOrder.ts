@@ -41,8 +41,8 @@ export const UseOrder = (trips:UseOrder) => {
         })
     
        }else{
-        const to_positions = trips.map(el=>el.uid)
-        useDispatch(addOrderAction({user, from:trips, to_positions})).then(data=>{
+        const from_positions = trips.map(el=>el.uid)
+        useDispatch(addOrderAction({user, from:trips, from_positions})).then(data=>{
           setSnackBarOpen(true)
           setSnackBarMessage('Успешное офромление билета')
         }).catch(error=>{

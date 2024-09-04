@@ -12,7 +12,7 @@ import { useAppDispatch } from '@/components/shared/lib/store';
 import { setPofile } from '@/components/entities/user';
 import { IoLanguageSharp } from "react-icons/io5";
 import lngs, { Lngs, LngsKeys } from "@/components/shared/i18n/lng";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 interface LanguageChange {
   onChange:(bool:boolean)=>void

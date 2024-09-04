@@ -16,20 +16,21 @@ export const UseLoves = (data:UseLoves) => {
   const useDispatch = useAppDispatch()
 
   const user = useAppSelector(selectUser)
+const paraps = useSearchParams()
 
 
   
 
   const addToLovesButton =  useCallback(()=>{
     if (!user || !data) return
-  
+       const seatNumber = paraps.get('seatNumber') ?? 0
        if(isTripsPairs(data)){
         const to_positions = data[1].map(el=>el.uid)
         const from_positions = data[0].map(el=>el.uid)
-        useDispatch(addLovesAction({user, from:data[0], to:data[1], to_positions, from_positions}))
+        useDispatch(addLovesAction({user, from:data[0], to:data[1], to_positions, from_positions, seatNumber:+seatNumber}))
        }else{
-        const to_positions = data.map(el=>el.uid)
-        useDispatch(addLovesAction({user, from:data, to_positions}))
+        const from_positions = data.map(el=>el.uid)
+        useDispatch(addLovesAction({user, from:data, from_positions, seatNumber:+seatNumber}))
        }
    
   }, [user, data])

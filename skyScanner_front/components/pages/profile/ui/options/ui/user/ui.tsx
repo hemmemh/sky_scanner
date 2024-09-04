@@ -6,7 +6,7 @@ import { IoIosArrowForward } from 'react-icons/io';
 import { useAppDispatch, useAppSelector } from '@/components/shared/lib/store';
 import { deleteUserAction } from '@/components/entities/user/model/userThunk';
 import { selectUser } from '@/components/entities/user';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 export const User = () => {
     const useDispatch = useAppDispatch()
     const user = useAppSelector(selectUser)
@@ -27,8 +27,8 @@ export const User = () => {
             </div>
             <div className={styles.name}>{t(`profile.account`)}</div>
             <div onClick={deleteUser} className={styles.delete}>
-                <div className={styles.delete__mame}>{t(`profile.deleteAccount`)}</div>
-                <IoIosArrowForward />
+                <div className={styles.delete__name}>{t(`profile.deleteAccount`)}</div>
+                <IoIosArrowForward  className={styles.delete__arrow}/>
             </div>
         </div>
      </div>

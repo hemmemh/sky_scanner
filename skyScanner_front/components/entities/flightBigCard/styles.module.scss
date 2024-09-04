@@ -11,6 +11,12 @@
     height: 100%;
 }
 
+.image{
+    height: 50px;
+    width: 70px;
+    object-fit: contain;
+}
+
 .infos{
     flex: 1 1  auto;
     padding: 1rem;

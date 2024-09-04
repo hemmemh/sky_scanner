@@ -34,20 +34,13 @@ export class CompanyService {
     
         for (let i = 0; i < companyes.length; i++) {
           const company = companyes[i];
-          const imagePath = v4() + '.png'
-          const destinationPath = path.resolve(__dirname, '../../../src/static/companies', imagePath); // Измените путь назначения
-  
-          const filePath = path.join(imagesDir, `${i + 1}.png`);
-          console.log('dd',filePath, destinationPath );
-          
-          this.move(filePath, destinationPath,(e:any)=>{console.log('ee', e);
-          })
+         
           const finded = await this.CompanyRepo.findOne({where:{name:company.name}})
 
           if (finded){
-            await this.CompanyRepo.save({...finded, image:imagePath});
+            await this.CompanyRepo.save({...finded, image:`${i+1}.png`});
           }else{
-            await this.CompanyRepo.save({...company, image:imagePath});
+            await this.CompanyRepo.save({...company, image:`${i+1}.png`});
           }
          
         }

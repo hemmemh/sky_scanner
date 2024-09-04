@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from '@/components/shared/lib/store'
 
 import { getHoursAndMinutes, getHoursFromMs } from '@/components/shared/lib/flight/day'
 import { selectMaxDepartureTime,  selectTripList } from '@/components/entities/TripList/model/selectors'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { DepartureTimeFiltr } from './ui/departureTimeFiltr'
 import { TimeFiltr } from './ui/timeFiltr'
 import { StopsFiltr } from './ui/stopsFiltr'

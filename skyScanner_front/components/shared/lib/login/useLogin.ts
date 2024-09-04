@@ -9,7 +9,7 @@ import { ITrip } from '../../api/trip'
 import { isTripsPairs } from '../../quards/guards'
 import {  setPofile } from '@/components/entities/user'
 
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { login, registration } from '../../api/user/user'
 
 interface useLogin {

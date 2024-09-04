@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 import { FormControl, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import { Sort } from '@/components/shared/types/tripsTypes';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { useAppSelector } from '@/components/shared/lib/store';
 import { selectAllTrips } from '@/components/entities/TripList';
 

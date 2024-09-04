@@ -31,6 +31,9 @@ export class Loves {
     createdAt: Date;
 
 
+    @Column({default:1})
+    seatNumber: number
+
     @ManyToOne(() => User, (user) => user.loves, {onDelete:'CASCADE'})
     user: User
 

@@ -7,7 +7,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { DateCalendar } from '@mui/x-date-pickers';
 import dayjs, { Dayjs } from 'dayjs';
 import { IoIosClose } from 'react-icons/io';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 
 interface Autocomplete {
@@ -100,7 +100,7 @@ export const DatePicker:FC<Autocomplete> = memo(({className = 'default', onChang
       <div className={styles.case__info}>
          <div className={styles.case__upText}>{label}</div>
          <div > 
-                      <Input  value={day ? day.format('DD/MM/YYYY') :  t('chooseRoute.date')}/>
+                      <Input readOnly value={day ? day.format('DD/MM/YYYY') :  t('chooseRoute.date')}/>
                       <DateCalendar sx={calendarStyle} ref={calendarRef} onChange={dateClick}/>
          </div> 
       </div>

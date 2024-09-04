@@ -3,7 +3,7 @@ import { selectMaxDepartureTime, selectMaxTime, selectMinDepartureTime, selectMi
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import { Slider, Typography } from '@mui/material';
 import styles from './styles.module.scss';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { useAppDispatch, useAppSelector } from '@/components/shared/lib/store';
 import { getHoursAndMinutes, getHoursFromMs } from '@/components/shared/lib/flight/day';
 import { setPage } from '@/components/entities/TripList/model/tripListSlice';

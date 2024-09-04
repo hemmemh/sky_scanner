@@ -12,6 +12,12 @@
 
 }
 
+.image{
+    height: 50px;
+    width: 70px;
+    object-fit: contain;
+}
+
 .item{
     display: flex;
     flex-direction: column;
