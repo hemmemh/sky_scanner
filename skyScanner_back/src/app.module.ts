@@ -32,7 +32,7 @@ import { join } from 'path';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: '172.20.0.1',
+      host: process.env.POSTGRESQL_HOST,
       port: +process.env.POSTGRESQL_PORT,
       username: process.env.POSTGRESQL_USER,
       password: process.env.POSTGRESQL_PASS,
