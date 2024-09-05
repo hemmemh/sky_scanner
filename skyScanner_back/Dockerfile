@@ -1,4 +1,4 @@
-FROM node As development
+FROM node As build
 
 WORKDIR /usr/src/app
 

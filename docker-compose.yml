@@ -18,21 +18,20 @@ services:
      build: skyScanner_back/.
      environment:
        - ENV
-     command: npm run start:${ENV:-dev}
+     command: npm run start:${ENV:-prod}
      ports:
        - 5100:5100
      depends_on:
        - postgres
- 
-  #  front:
-  #    build: 
-  #      context: skyScanner_front/.
-  #    labels:
-  #      SERVICE_CHECK_INTERVAL: 10s
-  #    ports:
-  #      - 3030:3030
-  #    depends_on:
-  #      - back
+   front:
+     build: 
+       context: skyScanner_front/.
+     labels:
+       SERVICE_CHECK_INTERVAL: 10s
+     ports:
+       - 3030:3030
+     depends_on:
+       - back
 
  
 volumes:

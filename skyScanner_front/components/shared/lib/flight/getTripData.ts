@@ -7,6 +7,8 @@ import { useAppSelector } from '../store'
 import { getOneSeatClass } from '../../api/seatClass/seatClass'
 import { ITrip } from '../../api/trip'
 import { isTripsPairs } from '../../quards/guards'
+import { CityKeys } from '../../api/city/types'
+import { useTranslation } from 'next-i18next'
 
 export const getTripData = () => {
   const searchParams = useSearchParams()
@@ -14,7 +16,8 @@ export const getTripData = () => {
   const [seatClass, setSeatClass] = useState<ISeatClass | null>(null)
   const [cityName, setCityName] = useState<string>('')
   const trips = useAppSelector(selectTrips)
-
+  const { t } = useTranslation();
+  const lang  = t('city.lang') as CityKeys
   useEffect(() => {
     const seatNumberQuery = searchParams.get('seatNumber')
     const seatClassQuery = searchParams.get('seatClass')
@@ -39,9 +42,9 @@ export const getTripData = () => {
   const getOutBoundCityName = (trips:ITrip[] | [ITrip[], ITrip[]] | null)=>{
       if (!trips) return ''
       if(isTripsPairs(trips)){
-          return trips[0][0].departure_city.name
+          return trips[0][0].departure_city.name[lang]
       }else{
-          return trips[0].departure_city.name
+          return trips[0].departure_city.name[lang]
       }
   }
 
