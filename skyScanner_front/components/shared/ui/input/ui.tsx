@@ -1,21 +1,15 @@
 'use client'
-import React, { FC, InputHTMLAttributes, ReactNode, Ref, RefAttributes, forwardRef } from 'react'
+import React, { InputHTMLAttributes, forwardRef } from 'react'
 import styles from './styles.module.scss';
-import clsx from 'clsx';
 
-interface Input extends InputHTMLAttributes<HTMLInputElement>  {
-
+interface IInput extends InputHTMLAttributes<HTMLInputElement>  {
 
 }
 
-
-export const Input = forwardRef<HTMLInputElement,Input>(({...props}, ref) => {
+export const Input = forwardRef<HTMLInputElement,IInput>(({ ...props }, ref) => {
   return (
 
-        <input  {...props} className={styles.input}  type="text" ref={ref}  />
-    
-   
-
+    <input  {...props} className={styles.input}  type="text" ref={ref}  />
 
   )
 })

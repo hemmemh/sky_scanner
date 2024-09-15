@@ -14,8 +14,8 @@ import { profileLng } from '../shared/i18n/profile';
 import { cityLng } from '../shared/i18n/city';
 
 i18n
-  // detect user language
-  // learn more: https://github.com/i18next/i18next-browser-languageDetector
+// detect user language
+// learn more: https://github.com/i18next/i18next-browser-languageDetector
 
   // pass the i18n instance to react-i18next.
   .use(initReactI18next)
@@ -25,63 +25,62 @@ i18n
   .init({
     debug: true,
     fallbackLng: 'en',
-    
+
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
     resources: {
-        ru: {
-            translation: {
-              destination: destinationLng.ru,
-              infoHome:infoLng.ru,
-              chooseRoute:chooseRouteLng.ru,
-              footer:footerLng.ru,
-              tripFilter: tripFilterLng.ru,
-              tripSort:tripSortLng.ru,
-              advertise:advertiseLng.ru,
-              tripData:tripDataLng.ru,
-              flight:flightLng.ru,
-              login:loginLng.ru,
-              languageChange:languageChangeLng.ru,
-              profile:profileLng.ru,
-              city:cityLng.ru
-            },
-          },
-          en: {
-            translation: {
-              destination:destinationLng.en,
-              infoHome:infoLng.en,
-              chooseRoute:chooseRouteLng.en,
-              footer:footerLng.en,
-              tripFilter: tripFilterLng.en,
-              tripSort:tripSortLng.en,
-              advertise:advertiseLng.en,
-              tripData:tripDataLng.en,
-              flight:flightLng.en,
-              login:loginLng.en,
-              languageChange:languageChangeLng.en,
-              profile:profileLng.en,
-              city:cityLng.en
-            },
-          },
-          de: {
-            translation: {
-              destination: destinationLng.de,
-              infoHome:infoLng.de,
-              chooseRoute:chooseRouteLng.de,
-              footer:footerLng.de,
-              tripFilter: tripFilterLng.de,
-              tripSort:tripSortLng.de,
-              advertise:advertiseLng.de,
-              flight:flightLng.de,
-              login:loginLng.de,
-              languageChange:languageChangeLng.de,
-              profile:profileLng.de,
-              city:cityLng.de
-            },
-          },
+      ru: {
+        translation: {
+          destination: destinationLng.ru,
+          infoHome:infoLng.ru,
+          chooseRoute:chooseRouteLng.ru,
+          footer:footerLng.ru,
+          tripFilter: tripFilterLng.ru,
+          tripSort:tripSortLng.ru,
+          advertise:advertiseLng.ru,
+          tripData:tripDataLng.ru,
+          flight:flightLng.ru,
+          login:loginLng.ru,
+          languageChange:languageChangeLng.ru,
+          profile:profileLng.ru,
+          city:cityLng.ru
+        },
+      },
+      en: {
+        translation: {
+          destination:destinationLng.en,
+          infoHome:infoLng.en,
+          chooseRoute:chooseRouteLng.en,
+          footer:footerLng.en,
+          tripFilter: tripFilterLng.en,
+          tripSort:tripSortLng.en,
+          advertise:advertiseLng.en,
+          tripData:tripDataLng.en,
+          flight:flightLng.en,
+          login:loginLng.en,
+          languageChange:languageChangeLng.en,
+          profile:profileLng.en,
+          city:cityLng.en
+        },
+      },
+      de: {
+        translation: {
+          destination: destinationLng.de,
+          infoHome:infoLng.de,
+          chooseRoute:chooseRouteLng.de,
+          footer:footerLng.de,
+          tripFilter: tripFilterLng.de,
+          tripSort:tripSortLng.de,
+          advertise:advertiseLng.de,
+          flight:flightLng.de,
+          login:loginLng.de,
+          languageChange:languageChangeLng.de,
+          profile:profileLng.de,
+          city:cityLng.de
+        },
+      },
     }
   });
-  
-  
+
 export default i18n

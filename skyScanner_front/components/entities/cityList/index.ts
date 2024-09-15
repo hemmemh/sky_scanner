@@ -1,9 +1,9 @@
 export {
-    default as CityReducer,
+  default as CityReducer,
 } from './model/tripListSlice'
 export { fetchCityList } from './model/cityListThunk'
 export {
-    selectCityList,
-    selectCityListError,
-    selectCityListLoading,
+  selectCityList,
+  selectCityListError,
+  selectCityListLoading,
 } from './model/selectors'

@@ -1,4 +1,3 @@
-import { IAirBus } from '@/components/shared/api/airbus'
 import { IUser } from '@/components/shared/api/user'
 import { RejectedDataType } from '@/components/shared/types/errorTypes'
 

@@ -7,20 +7,17 @@ import { Fallback } from '@/components/shared/ui/fallback'
 import { Provider } from 'react-redux'
 import { store } from '../store'
 import '@/components/app/i18n';
-export function Providers({children}: { children: React.ReactNode }) {
-
-
-  
+export function Providers ({ children }: { children: React.ReactNode }) {
 
   return (
     <ErrorBoundary  FallbackComponent={Fallback}>
 
-<Provider store={store}>
-<LocalizationProvider dateAdapter={AdapterDayjs}>
-      {children}
-      </LocalizationProvider>
-</Provider>
- 
-      </ErrorBoundary>
+      <Provider store={store}>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          {children}
+        </LocalizationProvider>
+      </Provider>
+
+    </ErrorBoundary>
   )
 }

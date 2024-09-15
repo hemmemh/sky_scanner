@@ -1,2 +1,2 @@
 export { createILoves, getAllILoves } from './loves'
-export { type ILoves} from './types'
+export { type ILoves } from './types'

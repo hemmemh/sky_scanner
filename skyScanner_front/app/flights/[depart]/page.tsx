@@ -1,5 +1,4 @@
 
-
 import { Flights } from '@/components/pages/flights'
 import React from 'react'
 

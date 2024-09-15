@@ -1,36 +1,25 @@
 'use client'
-import React, { ReactElement, useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './styles.module.scss';
+import dayjs from 'dayjs';
 
-import { BiSolidPlaneAlt } from "react-icons/bi";
-import { Input } from '@/components/shared/ui/input';
-import dayjs, { Dayjs } from 'dayjs';
-import { DateCalendar} from '@mui/x-date-pickers';
-import clsx from 'clsx';
 import { Button } from '@mui/material';
 import { Autocomplete } from '@/components/shared/ui/autocomplete';
 import { DatePicker } from '@/components/shared/ui/datePicker/ui';
 import { SeatPicker } from '@/components/shared/ui/seatPicker';
-import { useAppDispatch, useAppSelector } from '@/components/shared/lib/store';
-import { fetchCityList, selectCityList } from '@/components/entities/cityList';
-import { fetchSeatClassList, selectSeatClassList } from '@/components/entities/seatClassList';
-import { ISeatClass } from '@/components/shared/api/seatClass';
 import { useRouter } from 'next/navigation';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
-import { Info, panelInputLabel } from '@/components/shared/types/tripsTypes';
-import { ICity } from '@/components/shared/api/city';
 import { useTranslation } from 'next-i18next';
 import { UseRoutePanel } from '@/components/shared/lib/routePanel/useRoutePanel';
 import { MySnackBar } from '@/components/shared/ui/snackBar/ui';
 import { CityKeys } from '@/components/shared/api/city/types';
+import clsx from 'clsx';
 dayjs.extend(utc)
 dayjs.extend(timezone)
 
-
 export const RoutePanel = () => {
 
-  
   const [snackBarOpen, setSnackBarOpen] = useState(false)
   const router = useRouter()
   const { t } = useTranslation();
@@ -38,86 +27,85 @@ export const RoutePanel = () => {
     depart,
     info,
     returnState,
-    fromCityList, 
-    toCityList, 
+    fromCityList,
+    toCityList,
     validation,
-    onSeatChange, 
-     onCityFromChange,
-     onCityToChange,
-     onDepartChange,
-     onReturnChange,
-  checkValidation,
-validationState} = UseRoutePanel()
+    onSeatChange,
+    onCityFromChange,
+    onCityToChange,
+    onDepartChange,
+    onReturnChange,
+    checkValidation,
+    validationState } = UseRoutePanel()
 
+  const findTrips = ()=>{
+    checkValidation(info, depart)
+    console.log(validation);
+    if (!Object.entries(validation.current).every(el=>el[1] === true)){
+      setSnackBarOpen(true)
+      return
+    }
 
+    if (returnState) {
+      router.push(`flights/${depart}/${returnState}/?from=${info.from}&to=${info.to}&seatNumber=${info.seatNumber}&seatClass=${info.seatClass}&sort=${info.sort}`)
+    } else {
+      router.push(`flights/${depart}?from=${info.from}&to=${info.to}&seatNumber=${info.seatNumber}&seatClass=${info.seatClass}&sort=${info.sort}`)
+    }
 
-const findTrips = ()=>{
-  checkValidation(info, depart)
-  console.log(validation);
-  if(!Object.entries(validation.current).every(el=>el[1] === true)){
-    setSnackBarOpen(true)
-    return
   }
-
-  
-  if (returnState) {
-    router.push(`flights/${depart}/${returnState}/?from=${info.from}&to=${info.to}&seatNumber=${info.seatNumber}&seatClass=${info.seatClass}&sort=${info.sort}`)
-  }else{
-    router.push(`flights/${depart}?from=${info.from}&to=${info.to}&seatNumber=${info.seatNumber}&seatClass=${info.seatClass}&sort=${info.sort}`)
-  }
- 
-
-  
-}
 
   return (
     <div className={styles.main}>
-        <div className={styles.body}>
-          <Autocomplete 
-           isValid={validationState.from} 
-           items={fromCityList.map(el=>{
+      <div className={styles.body}>
+        <Autocomplete
+          isValid={validationState.from}
+          items={fromCityList.map(el=>{
             const lang  = t('city.lang') as CityKeys
             return el.name[lang]
-           })} 
-           className={styles.first}  
-           label={t('chooseRoute.from')} 
-           placeholder={t('chooseRoute.city')} 
-           onChange={onCityFromChange}/>
+          })}
+          className={clsx(styles.first, styles.one)}
+          label={t('chooseRoute.from')}
+          placeholder={t('chooseRoute.city')}
+          onChange={onCityFromChange}/>
 
-          <Autocomplete 
-           isValid={validationState.to} 
-           items={toCityList.map(el=>{
+        <Autocomplete
+          isValid={validationState.to}
+          items={toCityList.map(el=>{
             const lang  = t('city.lang') as CityKeys
             return el.name[lang]
-           })} 
-           label={t('chooseRoute.to')} 
-           placeholder={t('chooseRoute.city')} 
-           onChange={onCityToChange}/>
+          })}
+          label={t('chooseRoute.to')}
+          className={clsx(styles.two)}
+          placeholder={t('chooseRoute.city')}
+          onChange={onCityToChange}/>
+      
+        <DatePicker
+          isValid={validationState.depart}
+          value={dayjs(depart)}
+          className={clsx(styles.three)}
+          label={t('chooseRoute.depart')}
+          onChange={onDepartChange}/>
 
-          <DatePicker 
-           isValid={validationState.depart} 
-           value={dayjs(depart)} 
-           label={t('chooseRoute.depart')} 
-           onChange={onDepartChange}/>
+        <DatePicker
+          value={returnState ? dayjs(returnState) : null}
+          label={t('chooseRoute.return')}
+          className={clsx(styles.four)}
+          onChange={onReturnChange}/>
 
-          <DatePicker 
-           value={returnState ? dayjs(returnState) : null} 
-           label={t('chooseRoute.return')} 
-           onChange={onReturnChange}/>
+        <SeatPicker
+          onChange={(e)=>onSeatChange(e.seatNumber, e.seatClass)}
+          className={clsx(styles.last,styles.five)} 
+          label={t('chooseRoute.classAndPlaces')}
+          placeholder={t('chooseRoute.classAndPlacesPlaceHolder')} />
+      </div>
+      <Button onClick={findTrips}   variant="contained">{t('chooseRoute.find')}</Button>
 
-          <SeatPicker  
-           onChange={(e)=>onSeatChange(e.seatNumber, e.seatClass)}  
-           className={styles.last} label={t('chooseRoute.classAndPlaces')} 
-           placeholder={t('chooseRoute.classAndPlacesPlaceHolder')} />
-        </div>
-        <Button onClick={findTrips}   variant="contained">{t('chooseRoute.find')}</Button>
-
-        <MySnackBar 
-         onChange={setSnackBarOpen} 
-         open={snackBarOpen} 
-         vertical='bottom' 
-         horizontal='center' 
-         message={'Заполните поля'}/>
+      <MySnackBar
+        onChange={setSnackBarOpen}
+        open={snackBarOpen}
+        vertical='bottom'
+        horizontal='center'
+        message={'Заполните поля'}/>
     </div>
   )
 }

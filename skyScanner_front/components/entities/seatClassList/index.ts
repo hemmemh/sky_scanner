@@ -1,9 +1,9 @@
 export {
-    default as SeatClassReducer,
+  default as SeatClassReducer,
 } from './model/tripListSlice'
 export { fetchSeatClassList } from './model/seatClassListThunk'
 export {
-    selectSeatClassList,
-    selectSeatClassListError,
-    selectSeatClassListLoading,
+  selectSeatClassList,
+  selectSeatClassListError,
+  selectSeatClassListLoading,
 } from './model/selectors'

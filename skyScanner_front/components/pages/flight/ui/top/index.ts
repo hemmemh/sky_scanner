@@ -1,2 +1,2 @@
-export {Top} from './ui';
+export { Top } from './ui';
 

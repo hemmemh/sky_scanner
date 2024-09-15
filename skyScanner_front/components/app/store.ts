@@ -1,12 +1,10 @@
-import { Middleware, Tuple, combineReducers, configureStore } from '@reduxjs/toolkit'
+import { Middleware, combineReducers, configureStore } from '@reduxjs/toolkit'
 import { AirBusReducer } from '../entities/airBus'
 import { TripReducer } from '../entities/TripList';
 import { CityReducer } from '../entities/cityList';
 import { SeatClassReducer } from '../entities/seatClassList';
 import { TripsReducer } from '../entities/Trip';
 import userSlice from '../entities/user/model/userSlice';
-
-
 
 const logger: Middleware = (store) => (next) => (action) => {
   console.log('Dispatching action:', action);
@@ -16,7 +14,6 @@ const logger: Middleware = (store) => (next) => (action) => {
   return result;
 };
 
-
 const rootRecucer = combineReducers({
   airBusList: AirBusReducer,
   tripList:TripReducer,
@@ -25,7 +22,6 @@ const rootRecucer = combineReducers({
   seatClassList:SeatClassReducer,
   user:userSlice
 })
-
 
 export const store = configureStore({
   reducer: rootRecucer,

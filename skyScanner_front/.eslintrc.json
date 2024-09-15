@@ -1,9 +1,40 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": [
+    "next/core-web-vitals",
+    "next",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
   "rules": {
   "react/display-name": "off",
   "react-hooks/rules-of-hooks": "off",
- "react-hooks/exhaustive-deps": "off"
+ "react-hooks/exhaustive-deps": "off",
+ "react/react-in-jsx-scope": "off",
+ "react/jsx-uses-react": "off",
+ "no-undef": "off", 
+ "no-unused-vars": ["error", { "argsIgnorePattern": "^value|^seatNumber|^seatClass" }],
+ "react/prop-types": "off",
+ "indent": ["error", 2],
+ "no-mixed-spaces-and-tabs": "error",
+ "padding-line-between-statements": [
+  "error",
+  { "blankLine": "always", "prev": "var", "next": "function" },
+  { "blankLine": "always", "prev": "function", "next": "function" },
+  { "blankLine": "always", "prev": "block-like", "next": "block-like" },
+  { "blankLine": "always", "prev": "block-like", "next": "multiline-block-like" }
+],
+"no-multiple-empty-lines": ["error", { "max": 1, "maxBOF": 1 }],  // Ограничение на количество пустых строк
+"no-trailing-spaces": "error",  // Запрещает пробелы в конце строк
+"no-whitespace-before-property": "error",  // Запрещает пробелы перед свойствами
+"keyword-spacing": ["error", { "before": true, "after": true }],  // Пробелы перед и после ключевых слов
+"space-before-function-paren": ["error", "always"],  // Пробел перед скобкой функции
+"object-curly-spacing": ["error", "always"],  // Пробелы внутри фигурных скобок
+"array-bracket-spacing": ["error", "never"]  // Пробелы внутри квадратных скобок
+  },
+ "settings": {
+  "react": {
+    "version": "detect"  // Автоматически определяет версию React
   }
+}
 
 }

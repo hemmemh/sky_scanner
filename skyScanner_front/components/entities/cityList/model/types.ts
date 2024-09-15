@@ -1,6 +1,4 @@
-import { IAirBus } from '@/components/shared/api/airbus'
 import { ICity } from '@/components/shared/api/city'
-import { ITrip } from '@/components/shared/api/trip/types'
 import { RejectedDataType } from '@/components/shared/types/errorTypes'
 
 export interface ICityListState {

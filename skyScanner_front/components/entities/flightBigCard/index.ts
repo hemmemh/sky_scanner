@@ -1,1 +1,1 @@
-export {FlightBigCard} from './ui';
+export { FlightBigCard } from './ui';

@@ -15,5 +15,3 @@ export interface IToken {
     user:IUser
 }
 
-
-

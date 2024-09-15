@@ -18,7 +18,6 @@ export interface ITrip {
     //paths: Path[]
 }
 
-
 export interface getAllData {
     trips:ITrip[][] | [ITrip[], ITrip[]][]
     minTime:number
@@ -27,10 +26,6 @@ export interface getAllData {
     minDepartureTime:number
     maxDepartureTime:number
 }
-
-
-
-
 
 export interface IGetTripsWithReturns{
     trips:[ITrip[], ITrip[]]

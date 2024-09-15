@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './styles.module.scss';
 import { FormControl, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import { Sort } from '@/components/shared/types/tripsTypes';
@@ -9,7 +9,6 @@ import { useAppSelector } from '@/components/shared/lib/store';
 import { selectAllTrips } from '@/components/entities/TripList';
 
 const sortList:Sort[] = ['optimal', 'cheapest', 'fastest']
-
 
 export const FlightsSort = () => {
   const searchParams = useSearchParams();
@@ -30,18 +29,18 @@ export const FlightsSort = () => {
     <div className={styles.main}>
       <div className={styles.result}>{alltrips} {t(`tripSort.results`)}</div>
       <div className={styles.select}>
-      <div className={styles.select_label}>{t(`tripSort.sortby`)}</div>
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <Select
-          value={sort}
-          onChange={handleChange}
-          displayEmpty
-          inputProps={{ 'aria-label': 'Without label' }}
-        >
-          {sortList.map(el=>   <MenuItem key={el} value={el}>  {t(`tripSort.${el}`)}</MenuItem>)}
-       
-        </Select>
-      </FormControl>
+        <div className={styles.select_label}>{t(`tripSort.sortby`)}</div>
+        <FormControl sx={{ m: 1, minWidth: 120 }}>
+          <Select
+            value={sort}
+            onChange={handleChange}
+            displayEmpty
+            inputProps={{ 'aria-label': 'Without label' }}
+          >
+            {sortList.map(el=>   <MenuItem key={el} value={el}>  {t(`tripSort.${el}`)}</MenuItem>)}
+
+          </Select>
+        </FormControl>
       </div>
 
     </div>

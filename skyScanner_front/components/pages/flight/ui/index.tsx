@@ -11,6 +11,5 @@ export const Flight = () => {
       <Details/>
     </MainLayout>
 
-
   )
 }

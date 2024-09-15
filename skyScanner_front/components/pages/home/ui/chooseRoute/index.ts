@@ -1,1 +1,1 @@
-export {ChooseRoute} from './ui/index';
+export { ChooseRoute } from './ui/index';

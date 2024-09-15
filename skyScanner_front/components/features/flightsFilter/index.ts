@@ -1,1 +1,1 @@
-export {FlightsFilter} from './ui';
+export { FlightsFilter } from './ui';

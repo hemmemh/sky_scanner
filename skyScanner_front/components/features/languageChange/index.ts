@@ -1,1 +1,1 @@
-export {LanguageChange} from './ui';
+export { LanguageChange } from './ui';

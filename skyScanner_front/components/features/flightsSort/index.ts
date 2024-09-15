@@ -1,1 +1,1 @@
-export {FlightsSort} from './ui';
+export { FlightsSort } from './ui';

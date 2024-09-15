@@ -9,7 +9,7 @@ export const Main = () => {
     <div className={styles.main}>
       <div className='container'>
         <div className={styles.body}>
-        <FlightsFilter/>
+          <FlightsFilter/>
           <FlightsBody/>
           <Ad/>
         </div>

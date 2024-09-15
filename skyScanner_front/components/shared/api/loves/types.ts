@@ -2,7 +2,7 @@ import { ITrip } from "../trip";
 import { IUser } from "../user";
 
 export interface ILoves{
-   
+
     uid: string;
     from: ITrip[]
     to: ITrip[]

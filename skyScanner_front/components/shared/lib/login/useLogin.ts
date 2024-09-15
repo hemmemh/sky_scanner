@@ -1,22 +1,18 @@
 'use client'
-import { useSearchParams } from 'next/navigation'
-import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
-import { ISeatClass } from '../../api/seatClass'
-import { selectTrips } from '@/components/entities/Trip'
-import { useAppDispatch, useAppSelector } from '../store'
-import { getOneSeatClass } from '../../api/seatClass/seatClass'
-import { ITrip } from '../../api/trip'
-import { isTripsPairs } from '../../quards/guards'
+
+import React from 'react'
+
+import { useAppDispatch, } from '../store'
+
 import {  setPofile } from '@/components/entities/user'
 
 import { useTranslation } from 'next-i18next'
 import { login, registration } from '../../api/user/user'
 
 interface useLogin {
-  onChange:(bool:boolean)=>void
+  onChange:(value:boolean)=>void
 }
-export const UseLogin = ({onChange}:useLogin) => {
-
+export const UseLogin = ({ onChange }:useLogin) => {
 
   const [snackBarOpen, setSnackBarOpen] = React.useState(false);
   const [snackBarMessage, setSnackBarMessage] = React.useState('');
@@ -26,7 +22,7 @@ export const UseLogin = ({onChange}:useLogin) => {
   const { t } = useTranslation();
 
   const onRegistrationClick = ()=>{
-    registration({email, password}).then(data=>{
+    registration({ email, password }).then(()=>{
       setSnackBarMessage(t('login.successfulRegister'))
       setSnackBarOpen(true)
       setPassword('')
@@ -34,19 +30,19 @@ export const UseLogin = ({onChange}:useLogin) => {
     }).catch(data=>{
       console.log('dd', data);
       const message = data.response.data.message
-      if(Array.isArray(message)){
+      if (Array.isArray(message)){
         setSnackBarMessage(data.response.data.message[0])
-      }else{
+      } else {
         setSnackBarMessage(data.response.data.message)
       }
-     
+
       setSnackBarOpen(true)
     })
   }
 
   const onloginClick = ()=>{
-    login({email, password}).then(data=>{
-      localStorage.setItem('access_token', data.access_token) 
+    login({ email, password }).then(data=>{
+      localStorage.setItem('access_token', data.access_token)
       useDispatch(setPofile(data.user))
       setSnackBarMessage(t('login.successfulLogin'))
       setSnackBarOpen(true)
@@ -57,15 +53,15 @@ export const UseLogin = ({onChange}:useLogin) => {
     }).catch(data=>{
       console.log('dd', data);
       const message = data.response.data.message
-      if(Array.isArray(message)){
+      if (Array.isArray(message)){
         setSnackBarMessage(data.response.data.message[0])
-      }else{
+      } else {
         setSnackBarMessage(data.response.data.message)
       }
-     
+
       setSnackBarOpen(true)
     })
   }
 
-  return {onRegistrationClick, onloginClick, snackBarOpen, snackBarMessage, password, email, setEmail, setPassword, setSnackBarOpen}
+  return { onRegistrationClick, onloginClick, snackBarOpen, snackBarMessage, password, email, setEmail, setPassword, setSnackBarOpen }
 }

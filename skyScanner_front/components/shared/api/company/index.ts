@@ -1,2 +1,2 @@
 export { createCompany } from './company'
-export { type ICompany} from './types'
+export { type ICompany } from './types'

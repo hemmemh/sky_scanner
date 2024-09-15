@@ -9,25 +9,20 @@ import { OptionMenuProvider } from '@/components/shared/ui/optionMenuProvider';
 
 export const Profile = () => {
 
-
   return (
     <MainLayout>
       <OptionMenuProvider>
-      <div className='container'>
-      <div className={styles.body}>
-        <Menu/>
-        <div className={styles.info}>
-          <Options/>
+        <div className='container'>
+          <div className={styles.body}>
+            <Menu/>
+            <div className={styles.info}>
+              <Options/>
+            </div>
+          </div>
         </div>
-        </div>
-      </div>
       </OptionMenuProvider>
 
+    </MainLayout>
 
-      </MainLayout>
-
-    
   )
 }
-
- 

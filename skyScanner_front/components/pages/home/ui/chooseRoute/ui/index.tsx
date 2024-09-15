@@ -9,12 +9,10 @@ export const ChooseRoute = () => {
   const { t } = useTranslation();
   return (
     <div className={styles.chooseRoute}>
-              <div className='container'>
-           
-                 <Title size='medium'>{t('chooseRoute.title')}</Title>
-                 <RoutePanel/>
-              </div>
-
+      <div className='container'>
+        <Title size='medium'>{t('chooseRoute.title')}</Title>
+        <RoutePanel/>
+      </div>
     </div>
   )
 }

@@ -1,2 +1,2 @@
 export { createCity } from './city'
-export { type ICity} from './types'
+export { type ICity } from './types'

@@ -1,5 +1,4 @@
-import { IAirBus } from '@/components/shared/api/airbus'
-import {ITrip } from '@/components/shared/api/trip/types'
+import { ITrip } from '@/components/shared/api/trip/types'
 import { RejectedDataType } from '@/components/shared/types/errorTypes'
 
 export interface ITripListState {

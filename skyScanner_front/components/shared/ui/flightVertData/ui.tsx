@@ -1,19 +1,18 @@
 
 import React, { FC, memo, useMemo } from 'react'
 import styles from './styles.module.scss';
-import { IoAirplaneSharp } from 'react-icons/io5';
 import { ITrip } from '../../api/trip';
 import { msToHoursAndMinutes, sliceCity } from '../../lib/flight';
 import { CityKeys } from '../../api/city/types';
 import { useTranslation } from 'next-i18next';
 
-interface FlightVertData {
+interface IFlightVertData {
   trip:ITrip
 }
 
-export const FlightVertData:FC<FlightVertData> = memo(({trip}) => {
+export const FlightVertData:FC<IFlightVertData> = memo(({ trip }) => {
 
-  const {start, end,hours,minutes} =  useMemo(()=> msToHoursAndMinutes(+trip.departure_time,+trip.arrival_time), [trip])
+  const { start, end,hours,minutes } =  useMemo(()=> msToHoursAndMinutes(+trip.departure_time,+trip.arrival_time), [trip])
   const { t } = useTranslation();
 
   const lang  = t('city.lang') as CityKeys

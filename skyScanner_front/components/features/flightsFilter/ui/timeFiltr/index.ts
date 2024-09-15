@@ -1,1 +1,1 @@
-export {TimeFiltr} from './ui';
+export { TimeFiltr } from './ui';
