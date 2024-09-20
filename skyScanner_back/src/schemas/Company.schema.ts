@@ -1,20 +1,17 @@
-
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Trip } from "./Trip.schema";
-
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Trip } from './Trip.schema';
 
 @Entity()
 export class Company {
-    @PrimaryGeneratedColumn('uuid')
-    uid: string;
+  @PrimaryGeneratedColumn('uuid')
+  uid: string;
 
-    @Column()
-    name: string
+  @Column()
+  name: string;
 
+  @OneToMany(() => Trip, (trip) => trip.company, { cascade: true })
+  trips: Trip[];
 
-    @OneToMany(() => Trip, (trip) => trip.company, {cascade:true})
-    trips: Trip[]
-
-    @Column({default:''})
-    image:string
+  @Column({ default: '' })
+  image: string;
 }

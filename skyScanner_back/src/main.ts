@@ -7,14 +7,11 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
   app.useGlobalPipes(new ValidationPipe());
-  app.enableCors(
-    {
-      origin: allowedOrigins, // Укажите ваш фронтенд URL
-      credentials: true, // Включите учетные данные
-      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS', // Разрешите нужные методы
-
-    },
-)
+  app.enableCors({
+    origin: allowedOrigins, // Укажите ваш фронтенд URL
+    credentials: true, // Включите учетные данные
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS', // Разрешите нужные методы
+  });
   app.use(cookieParser());
   await app.listen(5100);
 }

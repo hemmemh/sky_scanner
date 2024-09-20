@@ -1,6 +1,6 @@
-import { User } from "src/schemas/User.schema";
+import { User } from 'src/schemas/User.schema';
 
-export interface AccessToken{
-    access_token:string,
-    user:User
+export interface AccessToken {
+  access_token: string;
+  user: User;
 }

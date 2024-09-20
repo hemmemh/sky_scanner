@@ -21,40 +21,34 @@ import { SeatClass } from 'src/schemas/SeatClass.schema';
 import { SeatClassController } from './seat-class/seat-class.controller';
 import { SeatClassService } from './seat-class/seat-class.service';
 
-
 @Module({
-    controllers:[
-       AirbusController,
-       CityController,
-       CompanyController,
-       PathController,
-       SeatClassController,
-       TripController,
-    ],
-    providers:[
-       AirbusService,
-       SeatClassService,
-       CityService,
-       CompanyService,
-       PathService,
-       TripService, 
-    ],
-    imports:[
-      TypeOrmModule.forFeature([
-         SeatClass,
-         AirBus,
-         City,
-         Company,
-         Order,
-         Path,
-         Trip,
-         User
-       
-    
-       ]),
-    ],
-  
+  controllers: [
+    AirbusController,
+    CityController,
+    CompanyController,
+    PathController,
+    SeatClassController,
+    TripController,
+  ],
+  providers: [
+    AirbusService,
+    SeatClassService,
+    CityService,
+    CompanyService,
+    PathService,
+    TripService,
+  ],
+  imports: [
+    TypeOrmModule.forFeature([
+      SeatClass,
+      AirBus,
+      City,
+      Company,
+      Order,
+      Path,
+      Trip,
+      User,
+    ]),
+  ],
 })
-export class FlightModule {
-
-}
+export class FlightModule {}

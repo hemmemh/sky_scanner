@@ -7,10 +7,6 @@ import { Loves } from 'src/schemas/Loves.schema';
 @Module({
   controllers: [LovesController],
   providers: [LovesService],
-  imports:[
-    TypeOrmModule.forFeature([
-       Loves
-     ]),
-  ],
+  imports: [TypeOrmModule.forFeature([Loves])],
 })
 export class LovesModule {}

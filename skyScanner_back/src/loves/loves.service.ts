@@ -5,31 +5,26 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class LovesService {
+  constructor(
+    @InjectRepository(Loves)
+    private LovesRepo: Repository<Loves>,
+  ) {}
 
+  async createLoves(order: Loves): Promise<Loves> {
+    return this.LovesRepo.save(order);
+  }
 
-    constructor(
-  
-        @InjectRepository(Loves)
-        private LovesRepo: Repository<Loves>,
-      ) {}
+  async getAll(): Promise<Loves[]> {
+    return this.LovesRepo.find({});
+  }
 
-    async createLoves(order:Loves): Promise<Loves> {
-        return this.LovesRepo.save(order);
-      }
-
-      async getAll(): Promise<Loves[]> {
-        return this.LovesRepo.find({})
-      }  
-
-
-      async delete(id:string){
-        try {
-         const finded =  await this.LovesRepo.findOne({where:{uid:id}}) 
-         await this.LovesRepo.delete(id)
-         return finded
-        } catch (error) {
-         throw new BadRequestException('User not found');
-        }
-       }
-
+  async delete(id: string) {
+    try {
+      const finded = await this.LovesRepo.findOne({ where: { uid: id } });
+      await this.LovesRepo.delete(id);
+      return finded;
+    } catch (error) {
+      throw new BadRequestException('User not found');
+    }
+  }
 }

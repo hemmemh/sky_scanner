@@ -6,25 +6,20 @@ import { Public } from 'src/auth/guards/JwtGuard';
 @Controller('airbus')
 @Public()
 export class AirbusController {
+  constructor(private airbusService: AirbusService) {}
 
+  @Post()
+  createAirBus(@Body() dto: AirBus) {
+    return this.airbusService.createAirBus(dto);
+  }
 
-    constructor(private airbusService: AirbusService) {}
+  @Get()
+  getAll() {
+    return this.airbusService.getAll();
+  }
 
-
-    @Post()
-    createAirBus(@Body() dto: AirBus) {
-      return this.airbusService.createAirBus(dto);
-    }
-
-
-    @Get()
-    getAll() {
-      return this.airbusService.getAll();
-    }
-
-
-    @Post('createMany')
-    createManyAirBus() {
-      return this.airbusService.createManyAirBus();
-    }
+  @Post('createMany')
+  createManyAirBus() {
+    return this.airbusService.createManyAirBus();
+  }
 }

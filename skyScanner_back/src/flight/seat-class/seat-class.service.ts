@@ -6,44 +6,34 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class SeatClassService {
+  constructor(
+    @InjectRepository(SeatClass)
+    private seatClassRepo: Repository<SeatClass>,
+  ) {}
 
-    constructor(
-        @InjectRepository(SeatClass)
-        private seatClassRepo: Repository<SeatClass>,
-    ){}
-
-   async  createSeatClass(seatClass:SeatClass){
-      try {
-        return this.seatClassRepo.save(seatClass)
-      } catch (error) {
-        return error
-      }
+  async createSeatClass(seatClass: SeatClass) {
+    try {
+      return this.seatClassRepo.save(seatClass);
+    } catch (error) {
+      return error;
     }
+  }
 
-    async getAll(): Promise<SeatClass[]> {
-        return this.seatClassRepo.find({})
-      }  
+  async getAll(): Promise<SeatClass[]> {
+    return this.seatClassRepo.find({});
+  }
 
+  async getOne(id: string): Promise<SeatClass> {
+    console.log('id', id);
 
-      async getOne(id:string): Promise<SeatClass> {
-        console.log('id', id);
-        
-        return this.seatClassRepo.findOne({where:{uid:id}})
-      }  
+    return this.seatClassRepo.findOne({ where: { uid: id } });
+  }
 
-    
-      
-     
-
-
-
-
-    async createMany(): Promise<SeatClass[]> {
-        const seatClasses = seatClassArray
-        for(const seatClass of seatClasses){
-           await this.seatClassRepo.save(seatClass);
-        }
-         return this.getAll()
-      }
-
+  async createMany(): Promise<SeatClass[]> {
+    const seatClasses = seatClassArray;
+    for (const seatClass of seatClasses) {
+      await this.seatClassRepo.save(seatClass);
+    }
+    return this.getAll();
+  }
 }

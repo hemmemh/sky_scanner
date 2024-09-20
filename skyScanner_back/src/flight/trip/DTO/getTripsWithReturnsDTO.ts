@@ -1,3 +1,3 @@
 export class getTripsWithReturnsDTO {
-trips:[string[], string[]]
+  trips: [string[], string[]];
 }

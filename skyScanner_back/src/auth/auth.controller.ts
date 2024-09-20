@@ -1,11 +1,4 @@
-import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
-import { Public } from './guards/JwtGuard';
-import { GoogleOauthGuard } from './guards/google-oauth.guard';
-import { AuthGuard } from '@nestjs/passport';
+import { Controller } from '@nestjs/common';
 
 @Controller('auth')
-export class AuthController {
-
-  
-
-}
+export class AuthController {}

@@ -28,7 +28,7 @@ import { join } from 'path';
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'src', 'static'),
-      serveRoot: '/static', 
+      serveRoot: '/static',
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -54,9 +54,9 @@ import { join } from 'path';
     AuthModule,
     UserModule,
     OrderModule,
-    LovesModule
+    LovesModule,
   ],
   controllers: [AppController],
-  providers: [AppService,  {provide:APP_GUARD, useClass:JwtGuard}],
+  providers: [AppService, { provide: APP_GUARD, useClass: JwtGuard }],
 })
 export class AppModule {}

@@ -4,19 +4,15 @@ import { OrderService } from './order.service';
 
 @Controller('order')
 export class OrderController {
- 
-     constructor(private orderService:OrderService){}
+  constructor(private orderService: OrderService) {}
 
-    @Post()
-    createOrder(@Body() dto: Order) {
-      return this.orderService.createOrder(dto);
-    }
+  @Post()
+  createOrder(@Body() dto: Order) {
+    return this.orderService.createOrder(dto);
+  }
 
-
-    @Get()
-    getAll() {
-      return this.orderService.getAll();
-    }
-
-
+  @Get()
+  getAll() {
+    return this.orderService.getAll();
+  }
 }

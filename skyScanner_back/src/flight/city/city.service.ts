@@ -7,35 +7,28 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class CityService {
+  constructor(
+    @InjectRepository(City)
+    private CityRepo: Repository<City>,
+  ) {}
 
-    constructor(
-        @InjectRepository(City)
-        private CityRepo: Repository<City>,
-    ){}
-
-   async  createCity(city:City){
-      try {
-        return this.CityRepo.save(city)
-      } catch (error) {
-        return error
-      }
+  async createCity(city: City) {
+    try {
+      return this.CityRepo.save(city);
+    } catch (error) {
+      return error;
     }
+  }
 
+  async getAll(): Promise<City[]> {
+    return this.CityRepo.find({});
+  }
 
-    async getAll(): Promise<City[]> {
-        return this.CityRepo.find({})
-      }  
-
-
-
-    async createMany(): Promise<City[]> {
-        const cities = citiesArray
-        for(const city of cities){
-           await this.CityRepo.save({name:city});
-        }
-         return this.getAll()
-      }
-
-
-
+  async createMany(): Promise<City[]> {
+    const cities = citiesArray;
+    for (const city of cities) {
+      await this.CityRepo.save({ name: city });
+    }
+    return this.getAll();
+  }
 }

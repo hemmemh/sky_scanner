@@ -6,18 +6,15 @@ import { Public } from 'src/auth/guards/JwtGuard';
 @Controller('company')
 @Public()
 export class CompanyController {
+  constructor(private companyService: CompanyService) {}
 
-    constructor(private companyService: CompanyService) {}
+  @Post()
+  createCompany(@Body() dto: Company) {
+    return this.companyService.createCompany(dto);
+  }
 
-
-    @Post()
-    createCompany(@Body() dto: Company) {
-      return this.companyService.createCompany(dto);
-    }
-
-
-    @Post('createMany')
-    createMany() {
-      return this.companyService.createMany();
-    }
+  @Post('createMany')
+  createMany() {
+    return this.companyService.createMany();
+  }
 }

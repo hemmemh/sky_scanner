@@ -6,26 +6,20 @@ import { Public } from 'src/auth/guards/JwtGuard';
 @Controller('city')
 @Public()
 export class CityController {
+  constructor(private cityService: CityService) {}
 
-    constructor(private cityService:CityService){
+  @Post()
+  createCity(@Body() dto: City) {
+    return this.cityService.createCity(dto);
+  }
 
-    }
+  @Get('getAll')
+  getAll(@Body() dto: City) {
+    return this.cityService.getAll();
+  }
 
-    @Post()
-    createCity(@Body() dto:City) {
-      return this.cityService.createCity(dto)
-    }
-
-
-    @Get('getAll')
-    getAll(@Body() dto:City) {
-      return this.cityService.getAll()
-    }
-
-
-    @Post('createMany')
-    createMany() {
-      return this.cityService.createMany();
-    }
-
+  @Post('createMany')
+  createMany() {
+    return this.cityService.createMany();
+  }
 }
