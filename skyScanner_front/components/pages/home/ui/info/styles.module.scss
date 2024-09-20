@@ -1,24 +1,31 @@
-.titleAccordion{
-    color: var(--color-black) !important;
+@import '../../../../../app/styles/ScssVars.scss';
+
+.titleAccordion {
+  color: var(--color-black) !important;
 }
 
-.main{
-    margin-top: 2rem;
+.main {
+  margin-top: 2rem;
 }
 
-.content{
-    margin-top: 2rem;
-    display: flex;
-    gap: 1rem;
-}
-.text{
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5rem;
-}
+.content {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
 
-.accordionContent{
-    display: flex;
+  @media (max-width: $tablet) {
     flex-direction: column;
-    gap: 0.5rem;
+  }
+}
+
+.text {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+.accordionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }

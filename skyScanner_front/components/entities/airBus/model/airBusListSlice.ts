@@ -1,34 +1,33 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
-import { IAirBusListState } from './types'
-import { fetchAirBusList } from './airBusListThunk'
+import { IAirBusListState } from "./types";
+import { fetchAirBusList } from "./airBusListThunk";
 
 const initialState: IAirBusListState = {
   airBuses: null,
   loading: false,
   error: null,
-}
+};
 
 const AirBusListSlice = createSlice({
-  name: 'airBusList',
+  name: "airBusList",
   initialState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) =>
     builder
       .addCase(fetchAirBusList.pending, (state) => {
-        state.loading = true
-        state.error = null
+        state.loading = true;
+        state.error = null;
       })
       .addCase(fetchAirBusList.fulfilled, (state, action) => {
-        state.airBuses = action.payload
-        state.loading = false
-        state.error = null
+        state.airBuses = action.payload;
+        state.loading = false;
+        state.error = null;
       })
       .addCase(fetchAirBusList.rejected, (state) => {
-        state.loading = false
-        state.error = null
+        state.loading = false;
+        state.error = null;
       }),
-})
+});
 
-export default AirBusListSlice.reducer
+export default AirBusListSlice.reducer;

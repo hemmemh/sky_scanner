@@ -1,25 +1,27 @@
-'use client'
-import React, { FC } from 'react'
-import styles from './styles.module.scss';
+"use client";
+import React, { FC } from "react";
+import styles from "./styles.module.scss";
 
-import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 
-import { FlightData } from '@/components/shared/ui/flightData';
-import { FlightVertData } from '@/components/shared/ui/flightVertData';
-import { IoIosArrowDown } from 'react-icons/io';
-import { ITrip } from '@/components/shared/api/trip';
+import { FlightData } from "@/components/shared/ui/flightData";
+import { FlightVertData } from "@/components/shared/ui/flightVertData";
+import { IoIosArrowDown } from "react-icons/io";
+import { ITrip } from "@/components/shared/api/trip";
 
-import { msToHoursAndMinutes, weekDayAndDatefromMs } from '@/components/shared/lib/flight';
-import { useTranslation } from 'next-i18next';
+import {
+  msToHoursAndMinutes,
+  weekDayAndDatefromMs,
+} from "@/components/shared/lib/flight";
+import { useTranslation } from "next-i18next";
 
-import Image from 'next/image';
+import Image from "next/image";
 
 interface IFlightBigCard {
-  data:ITrip[]
+  data: ITrip[];
 }
 
-export const FlightBigCard:FC<IFlightBigCard> = ({ data }) => {
-
+export const FlightBigCard: FC<IFlightBigCard> = ({ data }) => {
   const { t } = useTranslation();
 
   return (
@@ -33,10 +35,9 @@ export const FlightBigCard:FC<IFlightBigCard> = ({ data }) => {
           >
             <div className={styles.head}>
               <div className={styles.info}>
-
                 <div className={styles.info__company}>
                   <Image
-                    alt='image'
+                    alt="image"
                     width={100}
                     className={styles.image}
                     height={100}
@@ -44,28 +45,47 @@ export const FlightBigCard:FC<IFlightBigCard> = ({ data }) => {
                     unoptimized
                   />
                 </div>
-                <FlightData data={data}/>
+                <FlightData data={data} />
               </div>
             </div>
-
           </AccordionSummary>
           <AccordionDetails>
             <div className={styles.trips}>
-              {data.map(el=>
+              {data.map((el) => (
                 <>
-                  <div key={el.uid} className={styles.bort}>{el.airBus.name}</div>
-                  <FlightVertData trip={el}/>
+                  <div key={el.uid} className={styles.bort}>
+                    {el.airBus.name}
+                  </div>
+                  <FlightVertData trip={el} />
                   <div className={styles.infos}>
-                    <div className={styles.info}>{t('tripData.arrives')} {weekDayAndDatefromMs(+el.departure_time, t('city.lang'))}</div>
+                    <div className={styles.info}>
+                      {t("tripData.arrives")}{" "}
+                      {weekDayAndDatefromMs(+el.departure_time, t("city.lang"))}
+                    </div>
                     <span className={styles.span}></span>
-                    <div className={styles.info}>{t('tripData.journeyDuration')} {msToHoursAndMinutes(+el.departure_time, +el.arrival_time).hours}{t('tripData.hours')} {msToHoursAndMinutes(+el.departure_time, +el.arrival_time).minutes}</div>
-                  </div></>
-              )}
+                    <div className={styles.info}>
+                      {t("tripData.journeyDuration")}{" "}
+                      {
+                        msToHoursAndMinutes(
+                          +el.departure_time,
+                          +el.arrival_time,
+                        ).hours
+                      }
+                      {t("tripData.hours")}{" "}
+                      {
+                        msToHoursAndMinutes(
+                          +el.departure_time,
+                          +el.arrival_time,
+                        ).minutes
+                      }
+                    </div>
+                  </div>
+                </>
+              ))}
             </div>
-
           </AccordionDetails>
         </Accordion>
       </div>
     </div>
-  )
-}
+  );
+};

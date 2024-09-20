@@ -1,10 +1,8 @@
-import { Loves } from '@/components/pages/loves'
-import React from 'react'
+import { Loves } from "@/components/pages/loves";
+import React from "react";
 
 const LovesPage = () => {
-  return (
-    <Loves/>
-  )
-}
+  return <Loves />;
+};
 
-export default LovesPage
+export default LovesPage;

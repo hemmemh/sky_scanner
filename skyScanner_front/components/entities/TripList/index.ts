@@ -1,8 +1,6 @@
-export {
-  default as TripReducer,
-} from './model/tripListSlice'
-export { setPage } from './model/tripListSlice'
-export { fetchTripList, } from './model/tripListThunk'
+export { default as TripReducer } from "./model/tripListSlice";
+export { setPage } from "./model/tripListSlice";
+export { fetchTripList } from "./model/tripListThunk";
 export {
   selectTripList,
   selectMinTime,
@@ -13,4 +11,4 @@ export {
   selectPage,
   selectAllTrips,
   selectTripsListLoading,
-} from './model/selectors'
+} from "./model/selectors";

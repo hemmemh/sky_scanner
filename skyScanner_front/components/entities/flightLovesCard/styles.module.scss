@@ -1,65 +1,65 @@
-.item{
+.item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d6d5d5;
+  box-shadow:
+    rgb(50 50 93 / 25%) 0 13px 27px -5px,
+    rgb(0 0 0 / 30%) 0 8px 16px -8px;
+  border-radius: 13px;
+
+  &__top {
     display: flex;
-    flex-direction: column;
-    border: 1px solid #d6d5d5;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    border-radius: 13px;
+    justify-content: space-between;
+    border-bottom: 1px solid #d6d5d5;
+    padding: 0 0.5rem;
+  }
 
-    &__top{
-        display: flex;
-        justify-content: space-between;
-        border-bottom: 1px solid #d6d5d5;
-        padding: 0 0.5rem;
-    }
-
-    &__flights{
+  &__flights {
     padding: 1rem 0;
-     display: flex;
-     justify-content: center;
-     flex: 1 1 auto;
-     gap: 1rem;
-     flex-direction: column;
-     align-items: center;
-     border-bottom: 1px solid #d6d5d5;
-    }
+    display: flex;
+    justify-content: center;
+    flex: 1 1 auto;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #d6d5d5;
+  }
 
-    &__bottom{
-        display: flex;
-        justify-content: space-between;
-        margin: 1rem 0;
-        padding: 0 2.2rem;
-    }
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    padding: 0 2.2rem;
+  }
 
-    &__button{
-        justify-self: end;
-    }
+  &__button {
+    justify-self: end;
+  }
 
-    &__dateCover{
-        display: flex;
-        align-items: center;
-        gap: 5px;
-       
-   
-    }
-
-    &__date{
-   
-        font-size: 18px;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-}
-
-.cities{
-    margin-left: 1.8rem;
+  &__dateCover {
     display: flex;
     align-items: center;
+    gap: 5px;
+  }
+
+  &__date {
+    white-space: nowrap;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
 }
 
-.divide{
-    margin: 0 0.5rem;
-    width: 8px;
-    height: 1px;
-    background: #000;
+.cities {
+  margin-left: 1.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.divide {
+  margin: 0 0.5rem;
+  width: 8px;
+  height: 1px;
+  background: #000;
 }

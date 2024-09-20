@@ -1,2 +1,1 @@
-export { Details } from './ui';
-
+export { Details } from "./ui";

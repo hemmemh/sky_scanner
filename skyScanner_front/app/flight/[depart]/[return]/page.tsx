@@ -1,11 +1,8 @@
-
-import { Flight } from '@/components/pages/flight'
-import React from 'react'
+import { Flight } from "@/components/pages/flight";
+import React from "react";
 
 const FlightPage = () => {
-  return (
-    <Flight/>
-  )
-}
+  return <Flight />;
+};
 
-export default FlightPage
+export default FlightPage;

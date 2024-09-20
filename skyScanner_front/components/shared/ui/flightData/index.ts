@@ -1,1 +1,1 @@
-export { FlightData } from './ui';
+export { FlightData } from "./ui";

@@ -1,35 +1,34 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { ISeatClassListState } from './types'
-import { fetchSeatClassList } from './seatClassListThunk'
+import { createSlice } from "@reduxjs/toolkit";
+import { ISeatClassListState } from "./types";
+import { fetchSeatClassList } from "./seatClassListThunk";
 
 const initialState: ISeatClassListState = {
   seatClasses: [],
   loading: false,
   error: null,
-}
+};
 
 const SeatClassListSlice = createSlice({
-  name: 'seatClassList',
+  name: "seatClassList",
   initialState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) =>
     builder
       .addCase(fetchSeatClassList.pending, (state) => {
-        state.loading = true
-        state.error = null
+        state.loading = true;
+        state.error = null;
       })
       .addCase(fetchSeatClassList.fulfilled, (state, action) => {
-        console.log('cc', action);
+        console.log("cc", action);
 
-        state.seatClasses = action.payload ?? []
-        state.loading = false
-        state.error = null
+        state.seatClasses = action.payload ?? [];
+        state.loading = false;
+        state.error = null;
       })
       .addCase(fetchSeatClassList.rejected, (state) => {
-        state.loading = false
-        state.error = null
+        state.loading = false;
+        state.error = null;
       }),
-})
+});
 
-export default SeatClassListSlice.reducer
+export default SeatClassListSlice.reducer;

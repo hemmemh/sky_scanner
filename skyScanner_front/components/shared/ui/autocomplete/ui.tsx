@@ -1,110 +1,141 @@
-'use client'
-import React, { FC, memo, useCallback, useEffect, useRef, useState } from 'react'
-import styles from './styles.module.scss';
-import clsx from 'clsx';
-import { Input } from '../input';
-import { renderToStaticMarkup } from 'react-dom/server';
-import { BiSolidPlaneAlt } from 'react-icons/bi';
+"use client";
+import React, {
+  FC,
+  memo,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import styles from "./styles.module.scss";
+import clsx from "clsx";
+import { Input } from "../input";
+import { renderToStaticMarkup } from "react-dom/server";
+import { BiSolidPlaneAlt } from "react-icons/bi";
 
 interface IAutocomplete {
-
-  isValid:boolean,
-  items:string[]
-  className?:string;
-  label:string;
-  placeholder:string
-  onChange:(value:string)=>void
+  isValid: boolean;
+  items: string[];
+  className?: string;
+  label: string;
+  placeholder: string;
+  onChange: (value: string) => void;
 }
 
-export const Autocomplete:FC<IAutocomplete> = memo(({ className = 'default', label, onChange, placeholder = '', items, isValid = false }) => {
+export const Autocomplete: FC<IAutocomplete> = memo(
+  ({
+    className = "default",
+    label,
+    onChange,
+    placeholder = "",
+    items,
+    isValid = false,
+  }) => {
+    const [input, setInput] = useState("");
+    const [values, setValues] = useState<string[]>(items);
+    const [filrerValues, setFilterValues] = useState<string[]>(values);
+    const [popperOpen, setPopperOpen] = useState(false);
+    const autocompleteRef = useRef(null);
+    const popperRef = useRef(null);
 
-  const [input, setInput] = useState('')
-  const [values, setValues] = useState<string[]>(items)
-  const [filrerValues, setFilterValues] = useState<string[]>(values)
-  const [popperOpen, setPopperOpen] = useState(false)
-  const autocompleteRef = useRef(null)
-  const popperRef = useRef(null)
+    const valueClick = (event: string) => {
+      setInput(event);
+      onChange(event);
+      setPopperOpen(false);
+    };
 
-  const valueClick = (event:string)=>{
+    const filterPopper = (value: string) => {
+      setInput(value);
 
-    setInput(event)
-    onChange(event)
-    setPopperOpen(false)
-  }
+      if (value === "") {
+        return setFilterValues(values);
+      }
 
-  const filterPopper = (value:string)=>{
+      setFilterValues(
+        values.filter((el) => {
+          const innerText = renderToStaticMarkup(el);
+          return innerText.toLowerCase().includes(value.toLowerCase());
+        }),
+      );
+    };
 
-    setInput(value)
+    useEffect(() => {
+      document.addEventListener("click", setPopper);
 
-    if (value === '') {
-      return setFilterValues(values)
-    }
+      return () => {
+        document.removeEventListener("click", setPopper);
+      };
+    }, []);
 
-    setFilterValues(values.filter(el=>{
-      const innerText =  renderToStaticMarkup(el)
-      return innerText.toLowerCase().includes(value.toLowerCase())
-    }))
+    useEffect(() => {
+      setValues(items);
+      setFilterValues(items);
+    }, [items]);
 
-  }
+    const setPopper = useCallback(
+      (e: MouseEvent) => {
+        if (!popperRef.current) return;
+        if (!autocompleteRef.current) return;
+        const target = e.target as HTMLElement;
 
-  useEffect(() => {
+        const popper = popperRef.current as HTMLElement;
+        const autocomplete = autocompleteRef.current as HTMLElement;
 
-    document.addEventListener('click',setPopper)
+        if (popper.contains(target) && target) {
+          return;
+        }
 
-    return () => {
+        if (autocomplete?.contains(target)) {
+          setPopperOpen(true);
+          return;
+        }
 
-      document.removeEventListener('click',setPopper)
-    }
-  }, [])
+        setPopperOpen(false);
+      },
+      [popperRef, autocompleteRef],
+    );
 
-  useEffect(() => {
-    setValues(items)
-    setFilterValues(items)
-  }, [items])
-
-  const setPopper = useCallback((e:any)=>{
-    if (!popperRef.current)  return
-    if (!autocompleteRef.current)  return
-    const target = e.target as HTMLElement
-
-    const popper = popperRef.current as HTMLElement
-    const autocomplete = autocompleteRef.current as HTMLElement
-
-    if (popper.contains(target) && target) {
-      return
-    }
-
-    if (autocomplete?.contains(target)){
-      setPopperOpen(true)
-      return
-    }
-
-    setPopperOpen(false)
-
-  }, [popperRef, autocompleteRef])
-
-  return (
-    <div ref={autocompleteRef} className={clsx(styles.case, className, { [styles.active]:popperOpen }, { [styles.inValid]:!isValid })} >
-      <div className={styles.case__body}>
-        <div className={styles.case__upText}>{label}</div>
-        <div >
-          <Input placeholder={placeholder}  onChange={e=>filterPopper(e.target.value)}  value={input}/>
-          <div ref={popperRef} className={clsx(styles.popper, { [styles.visible]:popperOpen })}>
-            <div className={clsx(styles.popper__body)}>
-              {filrerValues.length === 0 && <div> нет значений</div>}
-              {filrerValues.map((el, id)=>
-                <div className={clsx(styles.popper__item, { [styles.activeItem]:el === input })} onClick={()=>valueClick(el)} key={id}>
-
-                  <BiSolidPlaneAlt/>
-                  <div className={styles.popper__text}>{el}</div>
-
-                </div>
-              )}
+    return (
+      <div
+        ref={autocompleteRef}
+        className={clsx(
+          styles.case,
+          className,
+          { [styles.active]: popperOpen },
+          { [styles.inValid]: !isValid },
+        )}
+      >
+        <div className={styles.case__body}>
+          <div className={styles.case__upText}>{label}</div>
+          <div>
+            <Input
+              placeholder={placeholder}
+              onChange={(e) => filterPopper(e.target.value)}
+              value={input}
+            />
+            <div
+              ref={popperRef}
+              className={clsx(styles.popper, { [styles.visible]: popperOpen })}
+            >
+              <div className={clsx(styles.popper__body)}>
+                {filrerValues.length === 0 && <div> нет значений</div>}
+                {filrerValues.map((el, id) => (
+                  <div
+                    className={clsx(styles.popper__item, {
+                      [styles.activeItem]: el === input,
+                    })}
+                    onClick={() => valueClick(el)}
+                    key={id}
+                  >
+                    <BiSolidPlaneAlt />
+                    <div className={styles.popper__text}>{el}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-    </div>
-  )
-})
+    );
+  },
+);

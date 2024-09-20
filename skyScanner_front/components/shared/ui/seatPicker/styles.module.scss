@@ -1,67 +1,63 @@
-.case{
+.case {
   cursor: pointer;
-  padding: 0 15px;
   height: 72px;
   display: flex;
   padding: 10px;
   background: var(--color-white);
-  position:  relative;
+  position: relative;
   z-index: 100;
- 
 
-
-  &.active{
-    box-shadow: 0px 2px 4px 4px rgba(145, 207, 255, 0.3) inset;
+  &.active {
+    box-shadow: 0 2px 4px 4px rgb(145 207 255 / 30%) inset;
   }
 
-  &.from{
-      
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
+  &.from {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
   }
 
-  &.return{
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
+  &.return {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
-
-  &__body{
-     display: flex;
-     width: 100%;
-     flex-direction: column;
-     white-space: nowrap;
+  &__body {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    white-space: nowrap;
   }
 
-  &__upText{
-      width: 100%;
-      color: #626971;
-      font-size: .875rem;
-      font-weight: 700;
-      line-height: 1.25rem;
+  &__upText {
+    width: 100%;
+    color: #626971;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.25rem;
   }
 
-  &__downText{
-      width: 100%;
+  &__downText {
+    width: 100%;
   }
 
-  &__inputDate{
-      width: 100%;
+  &__inputDate {
+    width: 100%;
   }
-  
 }
-.popper{
-  &.visible{
-opacity: 1;
-pointer-events: visible;
+
+.popper {
+  &.visible {
+    opacity: 1;
+    pointer-events: visible;
   }
+
   background: #fff;
   position: absolute;
-   pointer-events: none;
+  pointer-events: none;
   top: calc(100% + 2px);
   left: 0;
   border-radius: 10px;
-  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0 5px 10px 2px rgb(34 60 80 / 20%);
   opacity: 0;
   display: flex;
   flex-direction: column;
@@ -69,24 +65,36 @@ pointer-events: visible;
   width: 100%;
   padding: 5px;
 
-  &__body{
+  &__body {
     padding: 5px;
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
-  &__item{
-      display: flex;
-      gap: 10px;
+
+  &__item {
+    display: flex;
+    gap: 10px;
   }
 }
-.popper__item{
+
+.popper__item {
   display: flex;
   gap: 10px;
   align-items: center;
   color: #161616;
-  font-family: Skyscanner Relative,-apple-system,BlinkMacSystemFont,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  font-family:
+    "Skyscanner Relative",
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
   font-size: 1rem;
   line-height: 1.3rem;
 }
-

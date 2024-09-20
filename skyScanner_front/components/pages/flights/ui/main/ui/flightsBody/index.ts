@@ -1,2 +1,1 @@
-export { FlightsBody } from './ui';
-
+export { FlightsBody } from "./ui";

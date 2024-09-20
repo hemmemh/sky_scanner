@@ -1,28 +1,26 @@
-.header{
+.header {
   height: 62px;
   background: var(--color-primary);
-
 }
 
-.logo{
+.logo {
   display: flex;
   align-items: center;
- 
 }
 
-.logoIcon{
+.logoIcon {
   padding-bottom: 10px;
   cursor: pointer;
 }
 
-.body{
+.body {
   display: flex;
   height: 62px;
   align-items: center;
   justify-content: space-between;
 }
 
-.actions{
+.actions {
   display: flex;
   align-items: center;
   gap: 5px;

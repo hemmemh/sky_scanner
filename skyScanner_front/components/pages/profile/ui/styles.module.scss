@@ -1,11 +1,23 @@
+@import '../../../../app/styles/ScssVars.scss';
 
+.body {
+  display: flex;
+  gap: 10rem;
+  margin-top: 4rem;
 
-.body{
-    display: flex;
-    gap: 10rem;
-    margin-top: 4rem;
+  @media (max-width: $laptopL) {
+    gap: 4rem;
+  }
+
+  @media (max-width: $laptop) {
+    flex-direction: column;
+  }
+
+  @media (max-width: $mobileL) {
+    gap: 1rem;
+  }
 }
 
-.info{
-    flex: 1 1 auto;
+.info {
+  flex: 1 1 auto;
 }

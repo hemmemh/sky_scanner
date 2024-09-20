@@ -1,8 +1,14 @@
-.main{
-    margin-top: 2rem;
+@import '../../../../../../app/styles/ScssVars.scss';
+
+.main {
+  margin-top: 2rem;
 }
 
-.body{
-    display: flex;
-    gap: 2rem;
+.body {
+  display: flex;
+  gap: 2rem;
+
+  @media (max-width: $laptop) {
+    flex-direction: column;
+  }
 }

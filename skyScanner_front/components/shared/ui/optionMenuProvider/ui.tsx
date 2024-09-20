@@ -1,5 +1,5 @@
-'use client'
-import React, { createContext, FC, ReactNode, useState } from 'react'
+"use client";
+import React, { createContext, FC, ReactNode, useState } from "react";
 
 interface IOptionMenuContextType {
   option: number;
@@ -11,7 +11,9 @@ export const OptionMenuContext = createContext<IOptionMenuContextType>({
   setOption: () => {},
 });
 
-export const OptionMenuProvider:FC<{children:ReactNode}> = ({ children }) => {
+export const OptionMenuProvider: FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [option, setOption] = useState(1);
 
   return (
@@ -19,4 +21,4 @@ export const OptionMenuProvider:FC<{children:ReactNode}> = ({ children }) => {
       {children}
     </OptionMenuContext.Provider>
   );
-}
+};

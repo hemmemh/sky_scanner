@@ -1,19 +1,17 @@
-'use client'
-import React, { useContext } from 'react'
-import styles from './styles.module.scss';
-import { User } from './user';
-import { Booking } from './booking';
-import { OptionMenuContext } from '@/components/shared/ui/optionMenuProvider/ui';
+"use client";
+import React, { useContext } from "react";
+import styles from "./styles.module.scss";
+import { User } from "./user";
+import { Booking } from "./booking";
+import { OptionMenuContext } from "@/components/shared/ui/optionMenuProvider/ui";
 
 export const Options = () => {
   const { option } = useContext(OptionMenuContext);
 
   return (
     <div className={styles.main}>
-      {option === 1 &&  <User/>}
-      {option === 2 &&  <Booking/>}
-
+      {option === 1 && <User />}
+      {option === 2 && <Booking />}
     </div>
-
-  )
-}
+  );
+};

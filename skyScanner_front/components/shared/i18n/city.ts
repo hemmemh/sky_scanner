@@ -1,11 +1,11 @@
 export const cityLng = {
   ru: {
-    lang:'ru'
+    lang: "ru",
   },
   en: {
-    lang:'en'
+    lang: "en",
   },
   de: {
-    lang:'de'
-  }
-}
+    lang: "de",
+  },
+};

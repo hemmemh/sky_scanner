@@ -1,1 +1,1 @@
-export { SeatPicker } from './ui';
+export { SeatPicker } from "./ui";

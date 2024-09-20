@@ -1,9 +1,8 @@
 import { ITrip } from "../trip";
 
 export interface ICompany {
-    uid: string,
-    name: string,
-    trips: ITrip[]
-    image:string
+  uid: string;
+  name: string;
+  trips: ITrip[];
+  image: string;
 }
-

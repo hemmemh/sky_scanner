@@ -1,24 +1,29 @@
-.main{
+@import '../../../../../../../../app/styles/ScssVars.scss';
 
-}
-
-.item{
-    padding: 1rem;
+.main {
+  @media (max-width: $laptop) {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    box-shadow: 0 1px 3px 0 #25201f4d;
-    max-width: 300px;
-    text-align: center;
-    border-radius: 12px;
+    justify-content: center;
+  }
 }
 
-.logos{
-    display: flex;
-    gap: 1rem;
+.item {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 1px 3px 0 #25201f4d;
+  max-width: 300px;
+  text-align: center;
+  border-radius: 12px;
 }
 
-.titleColor{
-    color: #000;
+.logos {
+  display: flex;
+  gap: 1rem;
+}
+
+.titleColor {
+  color: #000;
 }

@@ -1,1 +1,1 @@
-export { Destination } from './ui'
+export { Destination } from "./ui";

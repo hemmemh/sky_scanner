@@ -1,36 +1,35 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
-import { fetchCityList } from './cityListThunk'
-import { ICityListState } from './types'
+import { fetchCityList } from "./cityListThunk";
+import { ICityListState } from "./types";
 
 const initialState: ICityListState = {
   cities: [],
   loading: false,
   error: null,
-}
+};
 
 const CityListSlice = createSlice({
-  name: 'cityList',
+  name: "cityList",
   initialState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) =>
     builder
       .addCase(fetchCityList.pending, (state) => {
-        state.loading = true
-        state.error = null
+        state.loading = true;
+        state.error = null;
       })
       .addCase(fetchCityList.fulfilled, (state, action) => {
-        console.log('cc', action);
+        console.log("cc", action);
 
-        state.cities = action.payload ?? []
-        state.loading = false
-        state.error = null
+        state.cities = action.payload ?? [];
+        state.loading = false;
+        state.error = null;
       })
       .addCase(fetchCityList.rejected, (state) => {
-        state.loading = false
-        state.error = null
+        state.loading = false;
+        state.error = null;
       }),
-})
+});
 
-export default CityListSlice.reducer
+export default CityListSlice.reducer;

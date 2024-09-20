@@ -1,13 +1,15 @@
-import { getAllAirBus } from '@/components/shared/api/airbus/airbus'
-import { createAsyncThunk } from '@reduxjs/toolkit'
+import { getAllAirBus } from "@/components/shared/api/airbus/airbus";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const fetchAirBusList = createAsyncThunk('airBus/getAll', async () => {
+export const fetchAirBusList = createAsyncThunk("airBus/getAll", async () => {
   try {
-    console.log('TTT');
-    const response = await getAllAirBus()
+    console.log("TTT");
+    const response = await getAllAirBus();
 
-    return response
+    return response;
   } catch (err) {
-    return  null
+    console.log(err);
+
+    return null;
   }
-})
+});

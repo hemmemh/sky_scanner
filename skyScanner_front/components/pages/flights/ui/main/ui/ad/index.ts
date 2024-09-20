@@ -1,2 +1,1 @@
-export { Ad } from './ui';
-
+export { Ad } from "./ui";

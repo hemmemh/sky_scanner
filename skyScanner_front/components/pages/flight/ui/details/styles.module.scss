@@ -1,41 +1,73 @@
-.main{
+@import '../../../../../app/styles/ScssVars.scss';
+
+.main {
   margin-top: 1rem;
   color: var(--color-white);
 }
 
-.titleColor{
+.titleColor {
   color: var(--color-black);
   margin-bottom: 1rem !important;
 }
 
-.body{
+.body {
   display: flex;
   flex-direction: column;
-
 }
 
-.flightInfos{
+.flightInfos {
   display: flex;
   gap: 1rem;
   flex-direction: column;
   flex: 1 1 auto;
-
 }
 
-.data{
+.data {
   display: flex;
   gap: 2rem;
   flex: 1 1 auto;
-}
-.infos{
-  display: flex;
-  gap: 2rem;
+
+  @media (max-width: $laptop) {
+    flex-direction: column;
+  }
+
+  @media (max-width: $tablet) {
+    align-items: center;
+  }
 }
 
-.info{
+.infos {
+  display: flex;
+  gap: 2rem;
+
+  @media (max-width: $tablet) {
+    flex-direction: column;
+  }
+}
+
+.add {
+  @media (max-width: $tablet) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.pay {
+  @media (max-width: $tablet) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.info {
   flex: 0 1 450px;
- &__title{
-  color: #000;
-  margin-bottom: 1rem;
- }
+
+  @media (max-width: $laptop) {
+    flex: 0 1 auto;
+  }
+
+  &__title {
+    color: #000;
+    margin-bottom: 1rem;
+  }
 }
