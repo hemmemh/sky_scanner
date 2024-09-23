@@ -12,11 +12,14 @@ import { CityKeys } from "@/components/shared/api/city/types";
 import { isTripsPairs } from "@/components/shared/quards/guards";
 import { useSearchParams } from "next/navigation";
 export const Top = () => {
+
   const trips = useAppSelector(selectTrips);
   const { t } = useTranslation();
   const params = useSearchParams();
   const cityLang = t("city.lang") as CityKeys;
+
   const { addToLovesButton, deleteLovesButton, loved } = UseLoves(trips);
+  
   const tripData = useMemo(() => {
     if (!trips) return { city: "", seatClass: "", seatNumber: "" };
 

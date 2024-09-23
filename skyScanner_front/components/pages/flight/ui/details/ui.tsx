@@ -22,6 +22,7 @@ export const Details = memo(() => {
   const params = useParams<{ depart: string; return?: string }>();
   const { t } = useTranslation();
   const trips = useAppSelector(selectTrips);
+
   const {
     addToOrder,
     payedOrder,
@@ -36,8 +37,6 @@ export const Details = memo(() => {
   }, []);
 
   useEffect(() => {
-    console.log("%%%", t("city.lang"));
-
     dayjs.locale(t("city.lang"));
   }, [t("city.lang")]);
 

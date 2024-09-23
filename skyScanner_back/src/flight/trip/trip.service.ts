@@ -478,7 +478,7 @@ export class TripService {
     const cities = await this.cityService.getAll()
     const companies  = await this.companyService.getAll()
     const airBuses  = await this.airbusService.getAll()
-    const seatClass =  await this.seatClassService.getOne('998a5a06-49ee-4acc-ab85-91264d994415')
+    const seatClass =  await this.seatClassService.getOne('c177a3f7-b48b-4062-b9d4-0ad4fc7817fc')
     while (numbers > 0){
       const departure_time = getRandomInteger(startDate, endDate)
       const arrival_time = getRandomInteger(departure_time,departure_time + 18000000)

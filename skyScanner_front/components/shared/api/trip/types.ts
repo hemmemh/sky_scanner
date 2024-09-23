@@ -1,3 +1,4 @@
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { IAirBus } from "../airbus";
 import { ICity } from "../city";
 import { ICompany } from "../company/types";
@@ -37,4 +38,9 @@ export interface IGetTrips {
 export interface IGetTripsForCalendar {
   departTrips: number[];
   returnTrips: number[];
+}
+
+export interface tripParams extends Params {
+  depart: number;
+  return: number;
 }

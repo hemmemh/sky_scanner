@@ -12,7 +12,7 @@ export class TripController {
 
     @Post('generate')
   generate () {
-    return this.tripService.generate(1000,1727740800000,1730419199000, 2000, 5000);
+    return this.tripService.generate(1000,1725148800000,1730419199000, 2000, 5000);
   }
 
   

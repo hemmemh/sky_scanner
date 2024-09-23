@@ -22,6 +22,7 @@ import { isTripsPairs } from "@/components/shared/quards/guards";
 import { Button, Skeleton } from "@mui/material";
 import { getTripData } from "@/components/shared/lib/flight/getTripData";
 import { Title } from "@/components/shared/ui/title";
+import { tripParams } from "@/components/shared/api/trip/types";
 export const FlightsBody = () => {
   const useDispatch = useAppDispatch();
 
@@ -37,12 +38,14 @@ export const FlightsBody = () => {
 
   useEffect(() => {
     const query = getQuery();
-    useDispatch(fetchTripList({ query, params }));
+    const  typedParams = params as tripParams
+    useDispatch(fetchTripList({ query, params:typedParams}));
   }, []);
 
   useEffect(() => {
     const query = getQuery();
-    useDispatch(fetchTripList({ query, params }));
+    const  typedParams = params as tripParams
+    useDispatch(fetchTripList({ query, params:typedParams }));
   }, [searchParams]);
 
   const setPageOnClick = () => {

@@ -9,6 +9,7 @@ import { ITrip } from "../../api/trip";
 import { isTripsPairs } from "../../quards/guards";
 import { CityKeys } from "../../api/city/types";
 import { useTranslation } from "next-i18next";
+import { Info, Sort } from "../../types/tripsTypes";
 
 export const getTripData = () => {
   const searchParams = useSearchParams();
@@ -44,10 +45,26 @@ export const getTripData = () => {
   };
 
   const getQuery = () => {
-    const query: { [key: string]: string } = {};
-    for (const [key, value] of searchParams.entries()) {
-      query[key] = value;
-      console.log(`${key}, ${value}`, searchParams.entries());
+    
+    const query: Info = {
+      from: '',
+      seatClass: '',
+      seatNumber: 1,
+      sort: 'optimal',
+      to: '',
+    };
+    
+    for (let [key, value] of searchParams.entries()) {
+      const typedKey = key as keyof Info;
+
+      // Type conversion handling
+      if (typedKey === 'seatNumber') {
+        query[typedKey] = Number(value);
+      } else if(typedKey === 'sort'){
+        query[typedKey] = value as Sort; 
+      }else{
+        query[typedKey] = value;
+      }
     }
     return query;
   };
