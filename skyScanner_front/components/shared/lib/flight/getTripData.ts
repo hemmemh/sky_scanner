@@ -45,7 +45,7 @@ export const getTripData = () => {
   };
 
   const getQuery = () => {
-    
+
     const query: Info = {
       from: '',
       seatClass: '',
@@ -53,16 +53,16 @@ export const getTripData = () => {
       sort: 'optimal',
       to: '',
     };
-    
-    for (let [key, value] of searchParams.entries()) {
+
+    for (const [key, value] of searchParams.entries()) {
       const typedKey = key as keyof Info;
 
       // Type conversion handling
       if (typedKey === 'seatNumber') {
         query[typedKey] = Number(value);
-      } else if(typedKey === 'sort'){
-        query[typedKey] = value as Sort; 
-      }else{
+      } else if (typedKey === 'sort'){
+        query[typedKey] = value as Sort;
+      } else {
         query[typedKey] = value;
       }
     }

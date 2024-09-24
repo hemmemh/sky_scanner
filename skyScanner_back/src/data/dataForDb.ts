@@ -60,7 +60,7 @@ export const companyArray = [
 export const seatClassArray = [
   {
     name: {
-      ru: 'эконом класс',
+      ru: 'Эконом класс',
       en: 'Economy Class',
       de: 'Economy Klasse',
     },

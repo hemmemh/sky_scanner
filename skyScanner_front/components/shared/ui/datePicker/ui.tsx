@@ -15,8 +15,8 @@ import { DateCalendar, PickersDay, PickersDayProps } from "@mui/x-date-pickers";
 import dayjs, { Dayjs } from "dayjs";
 import { IoIosClose } from "react-icons/io";
 import { useTranslation } from "next-i18next";
-import { UseIsMobile } from "../../lib/useMibile/UseIsMobile";
 import { CircularProgress } from "@mui/material";
+import { UseIsMobile } from "../../lib/useMibile";
 
 interface Autocomplete {
   value?: Dayjs | null;
@@ -45,8 +45,6 @@ export const DatePicker: FC<Autocomplete> = memo(
     const caseRef = useRef(null);
     const { t } = useTranslation();
     const isMobile = UseIsMobile();
-
-    useEffect(() => {}, [isMobile]);
 
     const calendarStyle = {
       display: calendarOpen ? "block" : "none",

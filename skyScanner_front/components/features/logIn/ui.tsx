@@ -6,11 +6,8 @@ import Image from "next/image";
 import logo from "@/public/logo-blue.svg";
 import { Title } from "@/components/shared/ui/title";
 import { IoMdClose } from "react-icons/io";
-import { login, registration } from "@/components/shared/api/user";
-import { MySnackBar } from "@/components/shared/ui/snackBar/ui";
-import { useAppDispatch } from "@/components/shared/lib/store";
-import { setPofile } from "@/components/entities/user";
-
+import { UseLogin } from "@/components/shared/lib/login";
+import { MySnackBar } from "@/components/shared/ui/snackBar";
 const closeStyle = {
   position: "absolute",
   top: "10px",
@@ -23,13 +20,17 @@ interface ILogIn {
 }
 
 export const LogIn: FC<ILogIn> = ({ onChange, value }) => {
-  const useDispatch = useAppDispatch();
   const [open, setOpen] = React.useState(value);
-  const [snackBarOpen, setSnackBarOpen] = React.useState(false);
-  const [snackBarMessage, setSnackBarMessage] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [email, setEmail] = React.useState("");
-
+  const {
+    onRegistrationClick,
+    onloginClick,
+    setEmail,
+    email ,
+    password,
+    setPassword,
+    setSnackBarOpen,
+    snackBarMessage,
+    snackBarOpen } = UseLogin({ onChange:setOpen })
   useEffect(() => {
     setOpen(value);
   }, [value]);
@@ -37,51 +38,6 @@ export const LogIn: FC<ILogIn> = ({ onChange, value }) => {
   const handleClose = () => {
     setOpen(false);
     onChange(false);
-  };
-
-  const onRegistrationClick = () => {
-    registration({ email, password })
-      .then(() => {
-        setSnackBarMessage("Успешная регистрация");
-        setSnackBarOpen(true);
-        setPassword("");
-        setEmail("");
-      })
-      .catch((data) => {
-        console.log("dd", data);
-        const message = data.response.data.message;
-        if (Array.isArray(message)) {
-          setSnackBarMessage(data.response.data.message[0]);
-        } else {
-          setSnackBarMessage(data.response.data.message);
-        }
-
-        setSnackBarOpen(true);
-      });
-  };
-
-  const onloginClick = () => {
-    login({ email, password })
-      .then((data) => {
-        localStorage.setItem("access_token", data.access_token);
-        useDispatch(setPofile(data.user));
-        setSnackBarMessage("Успешная авторизация");
-        setSnackBarOpen(true);
-        setPassword("");
-        setEmail("");
-        onChange(false);
-      })
-      .catch((data) => {
-        console.log("dd", data);
-        const message = data.response.data.message;
-        if (Array.isArray(message)) {
-          setSnackBarMessage(data.response.data.message[0]);
-        } else {
-          setSnackBarMessage(data.response.data.message);
-        }
-
-        setSnackBarOpen(true);
-      });
   };
 
   return (

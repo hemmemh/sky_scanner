@@ -4,8 +4,7 @@
     "next",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "plugin:react/recommended"
   ],
   "rules": {
     "react/display-name": "off",
@@ -19,7 +18,6 @@
       { "argsIgnorePattern": "^value|^seatNumber|^seatClass" }
     ],
     "react/prop-types": "off",
-    "prettier/prettier": "error",
     "indent": ["error", 2],
     "no-mixed-spaces-and-tabs": "error",
     "padding-line-between-statements": [

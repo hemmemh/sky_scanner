@@ -11,15 +11,13 @@ import dayjs from "dayjs";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 export const Booking = () => {
-  
+
   const user = useAppSelector(selectUser);
   const { t } = useTranslation();
 
   const getCreateOrderDate = (date: Date) => {
     return dayjs(date).format("DD/MM/YYYY");
   };
-
-
 
   return (
     <div className={styles.main}>

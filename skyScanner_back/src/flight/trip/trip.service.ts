@@ -23,6 +23,7 @@ import { SeatClassService } from '../seat-class/seat-class.service';
 import { getAllData } from './DTO/getAllData';
 import { getAllWithReturnData } from './DTO/getAllWithReturnData';
 import { getTripsForCalendarDTO } from './DTO/getTripsForCalendatDTO';
+import { CreateManyTripDTO } from './DTO/createManyDTO';
 
 @Injectable()
 export class TripService {
@@ -474,11 +475,12 @@ export class TripService {
     }
   }
 
-  async generate (numbers = 1000,startDate:number, endDate:number, startPrice:number, endPrice:number){
+  async generate (dto:CreateManyTripDTO){
+    let {numbers,startDate, endDate, startPrice, endPrice} = dto
     const cities = await this.cityService.getAll()
     const companies  = await this.companyService.getAll()
     const airBuses  = await this.airbusService.getAll()
-    const seatClass =  await this.seatClassService.getOne('c177a3f7-b48b-4062-b9d4-0ad4fc7817fc')
+    const seatClass =  await this.seatClassService.getOneByName('Эконом класс')
     while (numbers > 0){
       const departure_time = getRandomInteger(startDate, endDate)
       const arrival_time = getRandomInteger(departure_time,departure_time + 18000000)

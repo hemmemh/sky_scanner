@@ -1,9 +1,10 @@
-import { Controller, Get, Param, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { TripService } from './trip.service';
 import { Public } from 'src/auth/guards/JwtGuard';
 import { getAllTripsDTO } from './DTO/getAllTripsDTO';
 import { getTripsWithReturnsDTO } from './DTO/getTripsWithReturnsDTO';
 import { getTripsDTO } from './DTO/getTripsDTO';
+import { CreateManyTripDTO } from './DTO/createManyDTO';
 
 @Controller('trip')
 @Public()
@@ -11,8 +12,8 @@ export class TripController {
   constructor (private tripService: TripService) {}
 
     @Post('generate')
-  generate () {
-    return this.tripService.generate(1000,1725148800000,1730419199000, 2000, 5000);
+  generate (@Body() dto: CreateManyTripDTO) {
+    return this.tripService.generate(dto);
   }
 
   

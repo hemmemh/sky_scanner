@@ -16,7 +16,6 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
     <div className={styles.MainLayout}>
       <Header />
       <div className={styles.children}>{children}</div>
-
       <Footer />
     </div>
   );

@@ -13,12 +13,26 @@ import { languageChangeLng } from "../shared/i18n/languageChange";
 import { profileLng } from "../shared/i18n/profile";
 import { cityLng } from "../shared/i18n/city";
 
+const languageDetector = new LanguageDetector();
+languageDetector.addDetector({
+  name: 'customDetector',
+  lookup () {
+    const detectedLng = window.navigator.language || 'ru';
+    return detectedLng.split('-')[0]; // Обрезаем региональную часть, оставляем только язык
+  }
+});
+
 i18n
   .use(initReactI18next)
   .use(LanguageDetector)
   .init({
+    detection: {
+      order: ['customDetector', 'cookie', 'localStorage', 'sessionStorage', 'querystring', 'htmlTag'],
+      caches: ['localStorage', 'cookie'],
+    },
     debug: true,
-    fallbackLng: "en",
+    fallbackLng: "ru",
+    supportedLngs: ['de', 'en', 'ru',],
 
     interpolation: {
       escapeValue: false,

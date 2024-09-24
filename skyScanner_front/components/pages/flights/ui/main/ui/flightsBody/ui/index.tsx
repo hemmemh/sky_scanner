@@ -39,7 +39,7 @@ export const FlightsBody = () => {
   useEffect(() => {
     const query = getQuery();
     const  typedParams = params as tripParams
-    useDispatch(fetchTripList({ query, params:typedParams}));
+    useDispatch(fetchTripList({ query, params:typedParams }));
   }, []);
 
   useEffect(() => {

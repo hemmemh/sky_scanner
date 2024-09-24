@@ -27,7 +27,6 @@ module.exports = {
       { argsIgnorePattern: '^value|^seatNumber|^seatClass' },
     ],
     'react/prop-types': 'off',
-    'prettier/prettier': 'error',
     indent: ['error', 2],
     'no-mixed-spaces-and-tabs': 'error',
     'padding-line-between-statements': [

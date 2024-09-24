@@ -12,10 +12,10 @@ import { fetchTrips, selectTrips } from "@/components/entities/Trip";
 import { isTripsPairs } from "@/components/shared/quards/guards";
 import { ITrip } from "@/components/shared/api/trip";
 import { weekDayAndDatefromMs } from "@/components/shared/lib/flight";
-import { MySnackBar } from "@/components/shared/ui/snackBar/ui";
 import { useTranslation } from "next-i18next";
-import { UseOrder } from "@/components/shared/lib/order/useOrder";
 import dayjs from "dayjs";
+import { UseOrder } from "@/components/shared/lib/order";
+import { MySnackBar } from "@/components/shared/ui/snackBar";
 
 export const Details = memo(() => {
   const useDispatch = useAppDispatch();

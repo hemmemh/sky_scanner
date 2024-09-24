@@ -9,9 +9,8 @@ import { ITrip } from "@/components/shared/api/trip";
 import { isTripsPairs } from "@/components/shared/quards/guards";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useTranslation } from "next-i18next";
-
-import { UseLoves } from "@/components/shared/lib/loves/useLoves";
 import Image from "next/image";
+import { UseLoves } from "@/components/shared/lib/loves";
 
 interface IFlightCard {
   data: [ITrip[], ITrip[]] | ITrip[];

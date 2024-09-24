@@ -6,11 +6,11 @@ import { Title } from "@/components/shared/ui/title";
 import { IconButton } from "@mui/material";
 import { useAppSelector } from "@/components/shared/lib/store";
 import { selectTrips } from "@/components/entities/Trip";
-import { UseLoves } from "@/components/shared/lib/loves/useLoves";
 import { useTranslation } from "next-i18next";
-import { CityKeys } from "@/components/shared/api/city/types";
 import { isTripsPairs } from "@/components/shared/quards/guards";
 import { useSearchParams } from "next/navigation";
+import { UseLoves } from "@/components/shared/lib/loves";
+import { CityKeys } from "@/components/shared/api/city/types";
 export const Top = () => {
 
   const trips = useAppSelector(selectTrips);
@@ -19,7 +19,7 @@ export const Top = () => {
   const cityLang = t("city.lang") as CityKeys;
 
   const { addToLovesButton, deleteLovesButton, loved } = UseLoves(trips);
-  
+
   const tripData = useMemo(() => {
     if (!trips) return { city: "", seatClass: "", seatNumber: "" };
 

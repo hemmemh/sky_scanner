@@ -5,16 +5,16 @@ import dayjs from "dayjs";
 
 import { Button } from "@mui/material";
 import { Autocomplete } from "@/components/shared/ui/autocomplete";
-import { DatePicker } from "@/components/shared/ui/datePicker/ui";
 import { SeatPicker } from "@/components/shared/ui/seatPicker";
 import { useRouter } from "next/navigation";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import { useTranslation } from "next-i18next";
-import { UseRoutePanel } from "@/components/shared/lib/routePanel/useRoutePanel";
-import { MySnackBar } from "@/components/shared/ui/snackBar/ui";
 import { CityKeys } from "@/components/shared/api/city/types";
 import clsx from "clsx";
+import { UseRoutePanel } from "@/components/shared/lib/routePanel";
+import { DatePicker } from "@/components/shared/ui/datePicker";
+import { MySnackBar } from "@/components/shared/ui/snackBar";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 

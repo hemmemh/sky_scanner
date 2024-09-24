@@ -11,8 +11,8 @@ import { useAppDispatch, useAppSelector } from "@/components/shared/lib/store";
 import { logout, selectUser } from "@/components/entities/user";
 
 import { useTranslation } from "next-i18next";
-import { OptionMenuContext } from "@/components/shared/ui/optionMenuProvider/ui";
 import clsx from "clsx";
+import { OptionMenuContext } from "@/components/shared/ui/optionMenuProvider/ui";
 
 export const Menu = () => {
   const user = useAppSelector(selectUser);
