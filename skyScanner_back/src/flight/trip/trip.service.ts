@@ -480,7 +480,9 @@ export class TripService {
     const cities = await this.cityService.getAll()
     const companies  = await this.companyService.getAll()
     const airBuses  = await this.airbusService.getAll()
+    console.log('1');
     const seatClass =  await this.seatClassService.getOneByName('Эконом класс')
+
     while (numbers > 0){
       const departure_time = getRandomInteger(startDate, endDate)
       const arrival_time = getRandomInteger(departure_time,departure_time + 18000000)

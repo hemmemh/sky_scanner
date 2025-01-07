@@ -28,7 +28,9 @@ export class SeatClassService {
   }
 
   async getOneByName(name: string): Promise<SeatClass> {
-    return this.seatClassRepo.findOne({ where: { name:{ru:name} } });
+    return this.seatClassRepo.createQueryBuilder("seat_class")
+    .where("seat_class.name ->> 'ru' = :name", { name })
+    .getOne();
   }
 
   async createMany(): Promise<SeatClass[]> {
