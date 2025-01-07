@@ -49,10 +49,10 @@ export const DatePicker: FC<Autocomplete> = memo(
     const calendarStyle = {
       display: calendarOpen ? "block" : "none",
       boxShadow: "0px 5px 10px 2px rgba(34, 60, 80, 0.2)",
-      position: "absolute",
+      position:isMobile ?  "fixed" : "absolute",
       background: "#fff",
-      top: isMobile ? "calc(50% - 168px)" : "calc(100% + 2px)",
-      left: isMobile ? "calc(50% - 160px)" : "0",
+      top: isMobile ? "calc(50% - 168px)" : "calc(100% + 14px)",
+      left: isMobile ? "calc(50% - 168px)" : "-10px",
       zIndex: "2200",
     };
 

@@ -84,7 +84,7 @@ export const Details = memo(() => {
   );
 
   return (
-    <div className={styles.main}>
+    <section className={styles.main}>
       <div className="container">
         <div className={styles.body}>
           <Title color="#000" marginBottom="20px" size="medium">
@@ -119,6 +119,6 @@ export const Details = memo(() => {
         vertical="bottom"
         message={snackBarMessage}
       />
-    </div>
+    </section>
   );
 });

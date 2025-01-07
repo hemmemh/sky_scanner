@@ -12,6 +12,7 @@ import { loginLng } from "../shared/i18n/logIn";
 import { languageChangeLng } from "../shared/i18n/languageChange";
 import { profileLng } from "../shared/i18n/profile";
 import { cityLng } from "../shared/i18n/city";
+import { lovesLng } from "../shared/i18n/loves";
 
 const languageDetector = new LanguageDetector();
 languageDetector.addDetector({
@@ -53,6 +54,7 @@ i18n
           languageChange: languageChangeLng.ru,
           profile: profileLng.ru,
           city: cityLng.ru,
+          loves:lovesLng.ru
         },
       },
       en: {
@@ -70,6 +72,7 @@ i18n
           languageChange: languageChangeLng.en,
           profile: profileLng.en,
           city: cityLng.en,
+          loves:lovesLng.en
         },
       },
       de: {
@@ -86,6 +89,7 @@ i18n
           languageChange: languageChangeLng.de,
           profile: profileLng.de,
           city: cityLng.de,
+          loves:lovesLng.de
         },
       },
     },

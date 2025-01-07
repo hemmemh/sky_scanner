@@ -9,17 +9,19 @@ import { selectUser } from "@/components/entities/user";
 
 import { Title } from "@/components/shared/ui/title";
 import { FlightLovesCard } from "@/components/entities/flightLovesCard";
+import { useTranslation } from "react-i18next";
 
 export const Loves = () => {
   const user = useAppSelector(selectUser);
+  const { t } = useTranslation();
 
   return (
     <MainLayout>
-      <div className={styles.main}>
+      <section className={styles.main}>
         <div className="container">
           <div className={styles.body}>
             <Title color="#000" size="large">
-              Закладки
+            {  t("loves.bookmarks")}
             </Title>
             <div className={styles.items}>
               {user?.loves.map((loves) => (
@@ -28,7 +30,7 @@ export const Loves = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </MainLayout>
   );
 };

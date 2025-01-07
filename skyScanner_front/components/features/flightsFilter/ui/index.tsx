@@ -9,9 +9,9 @@ import { useAppSelector } from "@/components/shared/lib/store";
 
 import { selectTripList } from "@/components/entities/TripList/model/selectors";
 import { useTranslation } from "next-i18next";
-import { DepartureTimeFiltr } from "./ui/departureTimeFiltr";
-import { TimeFiltr } from "./ui/timeFiltr";
-import { StopsFiltr } from "./ui/stopsFiltr";
+import { DepartureTimeFiltr } from "./departureTimeFiltr";
+import { TimeFiltr } from "./timeFiltr";
+import { StopsFiltr } from "./stopsFiltr";
 
 const accordionStyle = {
   boxShadow: "none",
@@ -23,7 +23,7 @@ export const FlightsFilter = memo(() => {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.main}>
+    <aside className={styles.main}>
       <Accordion defaultExpanded sx={accordionStyle}>
         <AccordionSummary
           expandIcon={<IoIosArrowDown />}
@@ -61,6 +61,6 @@ export const FlightsFilter = memo(() => {
         </AccordionSummary>
         <AccordionDetails>{trips && <StopsFiltr />}</AccordionDetails>
       </Accordion>
-    </div>
+    </aside>
   );
 });

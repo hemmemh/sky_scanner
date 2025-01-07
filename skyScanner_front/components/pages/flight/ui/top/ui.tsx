@@ -39,7 +39,7 @@ export const Top = () => {
   }, [trips, cityLang]);
 
   return (
-    <div className={styles.main}>
+    <section className={styles.main}>
       <div className="container">
         <div className={styles.body}>
           <div className={styles.info}>
@@ -66,6 +66,6 @@ export const Top = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

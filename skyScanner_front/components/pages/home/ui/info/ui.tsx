@@ -15,7 +15,7 @@ export const Info = () => {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.main}>
+    <section className={styles.main}>
       <div className="container">
         <div className={styles.body}>
           <Title size="medium" className={styles.titleAccordion}>
@@ -37,9 +37,9 @@ export const Info = () => {
                       </Title>
                     </AccordionSummary>
                     <AccordionDetails>
-                      <div className={styles.text}>
+                      <p className={styles.text}>
                         {t(`infoHome.${Object.keys(infoLng.ru)[i + 11]}`)}
-                      </div>
+                      </p>
                     </AccordionDetails>
                   </Accordion>
                 ))}
@@ -59,9 +59,9 @@ export const Info = () => {
                       </Title>
                     </AccordionSummary>
                     <AccordionDetails>
-                      <div className={styles.text}>
+                      <p className={styles.text}>
                         {t(`infoHome.${Object.keys(infoLng.ru)[i + 16]}`)}
-                      </div>
+                      </p>
                     </AccordionDetails>
                   </Accordion>
                 ))}
@@ -69,6 +69,6 @@ export const Info = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

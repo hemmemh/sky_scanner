@@ -1,1 +1,0 @@
-export { Ad } from "./ui";

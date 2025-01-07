@@ -25,7 +25,7 @@ export const Menu = () => {
   };
 
   return (
-    <div className={styles.main}>
+    <section className={styles.main}>
       <div className={styles.body}>
         <div className={styles.user}>
           <Title className={styles.titleColor} color="#000" size="large">
@@ -65,6 +65,6 @@ export const Menu = () => {
           <Button onClick={onLogoutClick}>{t(`profile.logOut`)}</Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
