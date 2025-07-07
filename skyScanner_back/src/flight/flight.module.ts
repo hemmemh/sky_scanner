@@ -50,5 +50,12 @@ import { SeatClassService } from './seat-class/seat-class.service';
       User,
     ]),
   ],
+  exports:[
+    AirbusService,
+    SeatClassService,
+    CityService,
+    CompanyService,
+    TripService,
+  ]
 })
 export class FlightModule {}

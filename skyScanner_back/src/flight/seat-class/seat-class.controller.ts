@@ -23,8 +23,4 @@ export class SeatClassController {
     return this.seatClassService.getOne(id);
   }
 
-  @Post('createMany')
-  createMany() {
-    return this.seatClassService.createMany();
-  }
 }

@@ -36,6 +36,11 @@ export class TripService {
     private airbusService: AirbusService,
   ){}
 
+  async isEmpty(): Promise<boolean> {
+    const count = await this.TripRepo.count();
+    return count === 0;
+  }
+
   async getAllWithReturn (query:getAllTripsDTO, departDate:number, returnDate:number): Promise<getAllWithReturnData> {
 
     try {
@@ -476,6 +481,8 @@ export class TripService {
   }
 
   async generate (dto:CreateManyTripDTO){
+    const isEmpty = await this.isEmpty()
+    if(!isEmpty) return
     let {numbers,startDate, endDate, startPrice, endPrice} = dto
     const cities = await this.cityService.getAll()
     const companies  = await this.companyService.getAll()

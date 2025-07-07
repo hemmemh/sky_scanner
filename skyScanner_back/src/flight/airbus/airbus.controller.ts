@@ -18,8 +18,5 @@ export class AirbusController {
     return this.airbusService.getAll();
   }
 
-  @Post('createMany')
-  createManyAirBus() {
-    return this.airbusService.createManyAirBus();
-  }
+
 }

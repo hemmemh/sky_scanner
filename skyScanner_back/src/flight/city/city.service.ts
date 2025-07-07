@@ -12,6 +12,11 @@ export class CityService {
     private CityRepo: Repository<City>,
   ) {}
 
+  async isEmpty(): Promise<boolean> {
+    const count = await this.CityRepo.count();
+    return count === 0;
+  }
+
   async createCity(city: City) {
     try {
       return this.CityRepo.save(city);
@@ -24,7 +29,9 @@ export class CityService {
     return this.CityRepo.find({});
   }
 
-  async createMany(): Promise<City[]> {
+  async createByFirstInit(): Promise<City[]> {
+    const isEmpty = await this.isEmpty()
+    if(!isEmpty) return
     const cities = citiesArray;
     for (const city of cities) {
       await this.CityRepo.save({ name: city });

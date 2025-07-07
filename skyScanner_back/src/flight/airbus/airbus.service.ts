@@ -11,6 +11,11 @@ export class AirbusService {
     private AirBusRepo: Repository<AirBus>,
   ) {}
 
+  async isEmpty(): Promise<boolean> {
+    const count = await this.AirBusRepo.count();
+    return count === 0;
+  }
+
   async createAirBus(airBus: AirBus): Promise<AirBus> {
     return this.AirBusRepo.save(airBus);
   }
@@ -19,7 +24,9 @@ export class AirbusService {
     return this.AirBusRepo.find({});
   }
 
-  async createManyAirBus(): Promise<AirBus[]> {
+  async createByFirstInit(): Promise<AirBus[]> {
+    const isEmpty = await this.isEmpty()
+    if(!isEmpty) return
     const airBuses = airBusesArray;
     for (const airBus of airBuses) {
       await this.AirBusRepo.save(airBus);

@@ -21,6 +21,7 @@ import { LovesModule } from './loves/loves.module';
 import { Loves } from './schemas/Loves.schema';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { InitService } from './init/init.service';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -57,6 +58,6 @@ import { join } from 'path';
     LovesModule,
   ],
   controllers: [AppController],
-  providers: [AppService, { provide: APP_GUARD, useClass: JwtGuard }],
+  providers: [AppService, { provide: APP_GUARD, useClass: JwtGuard }, InitService],
 })
 export class AppModule {}

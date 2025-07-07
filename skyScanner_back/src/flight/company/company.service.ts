@@ -12,6 +12,11 @@ export class CompanyService {
     private CompanyRepo: Repository<Company>,
   ) {}
 
+  async isEmpty(): Promise<boolean> {
+    const count = await this.CompanyRepo.count();
+    return count === 0;
+  }
+
   async createCompany(company: Company) {
     try {
       return this.CompanyRepo.save(company);
@@ -24,7 +29,9 @@ export class CompanyService {
     return this.CompanyRepo.find({});
   }
 
-  async createMany(): Promise<Company[]> {
+  async createByFirstInit(): Promise<Company[]> {
+    const isEmpty = await this.isEmpty()
+    if(!isEmpty) return
     const companyes = companyArray;
 
     const imagesDir = path.resolve(

@@ -11,6 +11,11 @@ export class SeatClassService {
     private seatClassRepo: Repository<SeatClass>,
   ) {}
 
+  async isEmpty(): Promise<boolean> {
+    const count = await this.seatClassRepo.count();
+    return count === 0;
+  }
+
   async createSeatClass(seatClass: SeatClass) {
     try {
       return this.seatClassRepo.save(seatClass);
@@ -33,7 +38,9 @@ export class SeatClassService {
     .getOne();
   }
 
-  async createMany(): Promise<SeatClass[]> {
+  async createByFirstInit(): Promise<SeatClass[]> {
+    const isEmpty = await this.isEmpty()
+    if(!isEmpty) return
     const seatClasses = seatClassArray;
     for (const seatClass of seatClasses) {
       await this.seatClassRepo.save(seatClass);

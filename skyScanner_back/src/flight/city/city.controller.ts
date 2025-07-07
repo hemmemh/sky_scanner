@@ -18,8 +18,5 @@ export class CityController {
     return this.cityService.getAll();
   }
 
-  @Post('createMany')
-  createMany() {
-    return this.cityService.createMany();
-  }
+
 }

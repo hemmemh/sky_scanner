@@ -13,8 +13,5 @@ export class CompanyController {
     return this.companyService.createCompany(dto);
   }
 
-  @Post('createMany')
-  createMany() {
-    return this.companyService.createMany();
-  }
+
 }
