@@ -7,7 +7,8 @@ import secondLogo from "@/public/images/hotels-logo.svg";
 import thirdLogo from "@/public/images/trip-logo.svg";
 import { Title } from "../title";
 import { Button } from "@mui/material";
-import { useTranslation } from "next-i18next";
+
+import { useTranslation } from 'react-i18next';
 export const Add = memo(() => {
   const { t } = useTranslation();
 

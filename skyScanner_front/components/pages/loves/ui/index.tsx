@@ -9,7 +9,7 @@ import { selectUser } from "@/components/entities/user";
 
 import { Title } from "@/components/shared/ui/title";
 import { FlightLovesCard } from "@/components/entities/flightLovesCard";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 
 export const Loves = () => {
   const user = useAppSelector(selectUser);
@@ -21,7 +21,7 @@ export const Loves = () => {
         <div className="container">
           <div className={styles.body}>
             <Title color="#000" size="large">
-            {  t("loves.bookmarks")}
+              {  t("loves.bookmarks")}
             </Title>
             <div className={styles.items}>
               {user?.loves.map((loves) => (

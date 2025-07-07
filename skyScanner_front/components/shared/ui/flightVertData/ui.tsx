@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 import { ITrip } from "../../api/trip";
 import { msToHoursAndMinutes, sliceCity } from "../../lib/flight";
 import { CityKeys } from "../../api/city/types";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from 'next-i18next';
 
 interface IFlightVertData {
   trip: ITrip;

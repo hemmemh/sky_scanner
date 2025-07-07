@@ -5,4 +5,4 @@ const FlightPage = () => {
   return <Flight />;
 };
 
-export default FlightPage;
+export default FlightPage

@@ -1,12 +1,11 @@
 export const lovesLng = {
-    ru: {
-        bookmarks: "Закладки",
-    },
-    en: {
-        bookmarks: "bookmarks",
-    },
-    de: {
-        bookmarks: "Lesezeichen",
-    },
-  };
-  
+  ru: {
+    bookmarks: "Закладки",
+  },
+  en: {
+    bookmarks: "bookmarks",
+  },
+  de: {
+    bookmarks: "Lesezeichen",
+  },
+};

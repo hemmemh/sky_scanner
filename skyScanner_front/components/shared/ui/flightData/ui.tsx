@@ -7,7 +7,8 @@ import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 dayjs.extend(duration);
 import { msToHoursAndMinutes, sliceCity } from "../../lib/flight";
-import { useTranslation } from "next-i18next";
+
+import { useTranslation } from 'next-i18next';
 import { CityKeys } from "../../api/city/types";
 interface IFlightData {
   data: ITrip[];

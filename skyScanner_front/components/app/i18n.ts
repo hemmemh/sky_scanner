@@ -19,7 +19,7 @@ languageDetector.addDetector({
   name: 'customDetector',
   lookup () {
     const detectedLng = window.navigator.language || 'ru';
-    return detectedLng.split('-')[0]; // Обрезаем региональную часть, оставляем только язык
+    return detectedLng.split('-')[0];
   }
 });
 

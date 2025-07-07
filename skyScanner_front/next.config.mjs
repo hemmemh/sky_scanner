@@ -15,9 +15,8 @@ const nextConfig = {
         domains: ['localhost'],
     },
     i18n:{
-        locales:['ru','en','de'],
-        defaultLocale: 'ru',
-
+      locales:['ru','de', 'en'],
+      defaultLocale: 'ru',
     },
     webpack:(config)=>{
         config.resolve.alias['@'] = path.resolve('./');
