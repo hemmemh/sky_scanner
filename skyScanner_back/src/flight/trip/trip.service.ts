@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Trip } from 'src/schemas/Trip.schema';
-import { Between, In, Not, Repository } from 'typeorm';
+import { Between, In,  MoreThanOrEqual, Not, Repository } from 'typeorm';
 import { getAllTripsDTO, StopValue } from './DTO/getAllTripsDTO';
 import * as dayjs from 'dayjs';
 import { CityService } from '../city/city.service';
@@ -59,7 +59,7 @@ export class TripService {
         where:{
           departure_city:{ uid:query.from },
           //arrival_city:{uid:query.to},
-          seats:+query.seatNumber,
+          seats:MoreThanOrEqual(+query.seatNumber),
           seatClass:{ uid:query.seatClass }
         }
       })
@@ -70,7 +70,7 @@ export class TripService {
         where:{
           departure_city:{ uid:query.to },
           //arrival_city:{uid:query.from},
-          seats:+query.seatNumber,
+          seats:MoreThanOrEqual(+query.seatNumber),
           seatClass:{ uid:query.seatClass }
         }
       })
@@ -236,7 +236,7 @@ export class TripService {
         where:{
           uid:Not(In(startTrips)),
           departure_city:{ uid:startCity.uid },
-          seats:+trip.seats,
+          seats:MoreThanOrEqual(+trip.seats),
           seatClass:{ uid:trip.seatClass.uid },
           departure_time:Between(trip.arrival_time, endTime),
 
@@ -309,7 +309,7 @@ export class TripService {
         where:{
           departure_city:{ uid:query.from },
           //arrival_city:{uid:query.to},
-          seats:+query.seatNumber,
+          seats:MoreThanOrEqual(+query.seatNumber),
           seatClass:{ uid:query.seatClass }
         }
       })
@@ -494,7 +494,7 @@ export class TripService {
       const departure_time = getRandomInteger(startDate, endDate)
       const arrival_time = getRandomInteger(departure_time,departure_time + 18000000)
       const price =  getRandomInteger(startPrice, endPrice)
-      const seats = 1
+      const seats = getRandomInteger(6, 30)
 
       const departure_city = getRandomElementFromArray(cities)
       const indexOfcity =  cities.findIndex(el=>el.uid === departure_city.uid)
@@ -546,7 +546,7 @@ export class TripService {
           where:{
             departure_city:{ uid:query.from },
             //arrival_city:{uid:query.to},
-            seats:+query.seatNumber,
+            seats:MoreThanOrEqual(+query.seatNumber),
             seatClass:{ uid:query.seatClass }
           }
         })
@@ -579,7 +579,7 @@ export class TripService {
           where:{
             departure_city:{ uid:query.to },
             //arrival_city:{uid:query.from},
-            seats:+query.seatNumber,
+            seats:MoreThanOrEqual(+query.seatNumber),
             seatClass:{ uid:query.seatClass }
           }
         })
@@ -634,7 +634,7 @@ export class TripService {
         where:{
           uid:Not(In(startTrips)),
           departure_city:{ uid:startCity.uid },
-          seats:+trip.seats,
+          seats:MoreThanOrEqual(+trip.seats),
           seatClass:{ uid:trip.seatClass.uid },
           departure_time:Between(trip.arrival_time, endTime),
 

@@ -28,7 +28,7 @@ export class InitService implements OnApplicationBootstrap {
        await this.seatClassService.createByFirstInit()
 
        const dto: CreateManyTripDTO = {
-        numbers:5000,
+        numbers:15000,
         startDate: new Date().valueOf(),
         endDate: new Date(new Date().setMonth(new Date().getMonth() + 1)).valueOf(),
         startPrice:5000,

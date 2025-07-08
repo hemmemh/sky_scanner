@@ -1,5 +1,5 @@
 import React from "react";
-import { Main } from "./main";
+import { Main } from "./main/index";
 import { MainLayout } from "@/components/app/layouts/mainLayout";
 
 export const Flights = () => {
